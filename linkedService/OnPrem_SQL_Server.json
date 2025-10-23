@@ -1,0 +1,21 @@
+{
+	"name": "OnPrem_SQL_Server",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "DESKTOP-8B7GOS8",
+			"database": "dkgupta2",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "Windows",
+			"userName": "dk.gupta25@outlook.com",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI4ODIyM2UyZS1lM2MyLTQ2YzItOTJiMS1mYjZmMzA5YTc0OTYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "dkpc",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

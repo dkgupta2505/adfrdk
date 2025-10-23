@@ -1,0 +1,25 @@
+{
+	"name": "OnPremSQLdb_parameterized",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OnPrem_SQL_Server",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_table": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().p_table",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,32 @@
+{
+	"name": "OnPrem_archive",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OnPrem_file",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_fileName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": {
+					"value": "@dataset().p_fileName",
+					"type": "Expression"
+				},
+				"folderPath": "Archive"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
