@@ -1,0 +1,126 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "Adf-dk-tenanat"
+		},
+		"Az_blob_LinkedServices_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Az_blob_LinkedServices'"
+		},
+		"OnPrem_SQL_Server_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'OnPrem_SQL_Server'"
+		},
+		"OnPrem_file_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'OnPrem_file'"
+		},
+		"linkedServices_AZ_SQLDB_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'linkedServices_AZ_SQLDB'"
+		},
+		"OnPrem_SQL_Server_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-8B7GOS8"
+		},
+		"OnPrem_SQL_Server_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "dkgupta2"
+		},
+		"OnPrem_SQL_Server_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dk.gupta25@outlook.com"
+		},
+		"OnPrem_file_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "E:\\ADF\\file"
+		},
+		"OnPrem_file_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "dk.gupta25@outlook.com"
+		},
+		"linkedServices_AZ_SQLDB_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "az-sql-server-dktenant.database.windows.net"
+		},
+		"linkedServices_AZ_SQLDB_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "az-sql-server-db-dk-tenanat"
+		},
+		"linkedServices_AZ_SQLDB_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dktenant"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "Adf-dk-tenanat_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"Az_blob_LinkedServices_connectionString": {
+						"value": "[parameters('Az_blob_LinkedServices_connectionString')]"
+					},
+					"linkedServices_AZ_SQLDB_password": {
+						"value": "[parameters('linkedServices_AZ_SQLDB_password')]"
+					},
+					"OnPrem_SQL_Server_password": {
+						"value": "[parameters('OnPrem_SQL_Server_password')]"
+					},
+					"OnPrem_file_password": {
+						"value": "[parameters('OnPrem_file_password')]"
+					},
+					"linkedServices_AZ_SQLDB_properties_typeProperties_server": {
+						"value": "[parameters('linkedServices_AZ_SQLDB_properties_typeProperties_server')]"
+					},
+					"linkedServices_AZ_SQLDB_properties_typeProperties_database": {
+						"value": "[parameters('linkedServices_AZ_SQLDB_properties_typeProperties_database')]"
+					},
+					"linkedServices_AZ_SQLDB_properties_typeProperties_userName": {
+						"value": "[parameters('linkedServices_AZ_SQLDB_properties_typeProperties_userName')]"
+					},
+					"OnPrem_SQL_Server_properties_typeProperties_server": {
+						"value": "[parameters('OnPrem_SQL_Server_properties_typeProperties_server')]"
+					},
+					"OnPrem_SQL_Server_properties_typeProperties_database": {
+						"value": "[parameters('OnPrem_SQL_Server_properties_typeProperties_database')]"
+					},
+					"OnPrem_SQL_Server_properties_typeProperties_userName": {
+						"value": "[parameters('OnPrem_SQL_Server_properties_typeProperties_userName')]"
+					},
+					"OnPrem_file_properties_typeProperties_host": {
+						"value": "[parameters('OnPrem_file_properties_typeProperties_host')]"
+					},
+					"OnPrem_file_properties_typeProperties_userId": {
+						"value": "[parameters('OnPrem_file_properties_typeProperties_userId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

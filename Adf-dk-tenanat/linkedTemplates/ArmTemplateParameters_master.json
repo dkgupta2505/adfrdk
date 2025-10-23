@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "Adf-dk-tenanat"
+		},
+		"Az_blob_LinkedServices_connectionString": {
+			"value": ""
+		},
+		"OnPrem_SQL_Server_password": {
+			"value": ""
+		},
+		"OnPrem_file_password": {
+			"value": ""
+		},
+		"linkedServices_AZ_SQLDB_password": {
+			"value": ""
+		},
+		"OnPrem_SQL_Server_properties_typeProperties_server": {
+			"value": "DESKTOP-8B7GOS8"
+		},
+		"OnPrem_SQL_Server_properties_typeProperties_database": {
+			"value": "dkgupta2"
+		},
+		"OnPrem_SQL_Server_properties_typeProperties_userName": {
+			"value": "dk.gupta25@outlook.com"
+		},
+		"OnPrem_file_properties_typeProperties_host": {
+			"value": "E:\\ADF\\file"
+		},
+		"OnPrem_file_properties_typeProperties_userId": {
+			"value": "dk.gupta25@outlook.com"
+		},
+		"linkedServices_AZ_SQLDB_properties_typeProperties_server": {
+			"value": "az-sql-server-dktenant.database.windows.net"
+		},
+		"linkedServices_AZ_SQLDB_properties_typeProperties_database": {
+			"value": "az-sql-server-db-dk-tenanat"
+		},
+		"linkedServices_AZ_SQLDB_properties_typeProperties_userName": {
+			"value": "dktenant"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
