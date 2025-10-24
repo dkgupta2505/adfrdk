@@ -1,12 +1,12 @@
 {
-	"name": "Onprem_txtfile_deepikagetmetadata",
+	"name": "Onpremised_archive_deepika",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "FileServer1",
+			"referenceName": "Onpremises_archive_deepika",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
-			"P_filename": {
+			"Archive_filename": {
 				"type": "string"
 			}
 		},
@@ -16,9 +16,10 @@
 			"location": {
 				"type": "FileServerLocation",
 				"fileName": {
-					"value": "@dataset().P_filename",
+					"value": "@dataset().Archive_filename",
 					"type": "Expression"
-				}
+				},
+				"folderPath": "Archive"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
@@ -26,6 +27,5 @@
 			"quoteChar": "\""
 		},
 		"schema": []
-	},
-	"type": "Microsoft.DataFactory/factories/datasets"
+	}
 }
