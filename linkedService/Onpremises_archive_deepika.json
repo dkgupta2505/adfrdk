@@ -5,9 +5,9 @@
 		"annotations": [],
 		"type": "FileServer",
 		"typeProperties": {
-			"host": "E:\\ADF\\File_Deepika\\",
+			"host": "E:\\ADF\\File_Deepika\\Archive",
 			"userId": "dk.gupta25@outlook.com",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJjYjE5MDM1MC00NzJhLTQzMDMtOGVkMy0yMDdjMmU3YmE1YWYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJmODUwNzhlYi00MTY0LTRiZDItYmMyNi01MjcwNWU0ODYxOGMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "dkpc",
