@@ -156,6 +156,8 @@
 						{
 							"name": "Copy data1",
 							"type": "Copy",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "copyfile",
@@ -247,6 +249,8 @@
 						{
 							"name": "delete Load file",
 							"type": "Delete",
+							"state": "Inactive",
+							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "Copy data1",
@@ -295,6 +299,8 @@
 			{
 				"name": "TruncateTable",
 				"type": "Lookup",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "MakeListOnlycsv",
@@ -314,7 +320,7 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "truncate table [dbo].[Customers]\ntruncate table [dbo].[PizzaOrder]\n\nselect 0",
+						"sqlReaderQuery": "truncate table PizzaOrder\nselect 0",
 						"queryTimeout": "02:00:00",
 						"partitionOption": "None"
 					},
@@ -326,7 +332,7 @@
 			}
 		],
 		"annotations": [],
-		"lastPublishTime": "2025-10-09T17:37:41Z"
+		"lastPublishTime": "2025-10-24T13:32:47Z"
 	},
 	"type": "Microsoft.DataFactory/factories/pipelines"
 }
