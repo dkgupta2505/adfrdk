@@ -2,7 +2,7 @@
 	"name": "Onprem_txtfile_deepikagetmetadata",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "FileServer1",
+			"referenceName": "Onpremises_archive_deepika",
 			"type": "LinkedServiceReference"
 		},
 		"parameters": {
