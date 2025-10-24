@@ -13,6 +13,30 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/Onprem_text_source')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "OnPrem_file",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "FileServerLocation"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/Onprem_txtfile_deepika')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -42,7 +66,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "Onpremises_archive_deepika",
+					"referenceName": "FileServer_onpremmain_deepika",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
@@ -58,8 +82,7 @@
 						"fileName": {
 							"value": "@dataset().P_filename",
 							"type": "Expression"
-						},
-						"folderPath": "Archive"
+						}
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -334,7 +357,9 @@
 				"annotations": [],
 				"lastPublishTime": "2025-10-09T03:45:30Z"
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Onprem_text_source')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/1_copy_behaviour_deepika')]",
@@ -774,7 +799,9 @@
 				"annotations": [],
 				"lastPublishTime": "2025-10-24T13:32:47Z"
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Onprem_text_source')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/2_OnPemFileToSQLDB_deepika')]",
@@ -1270,7 +1297,9 @@
 				"annotations": [],
 				"lastPublishTime": "2025-10-24T13:32:47Z"
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/Onprem_text_source')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/3_load_multipleCSVFileToRespectiveTable_deepika')]",

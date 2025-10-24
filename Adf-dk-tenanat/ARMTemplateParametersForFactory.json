@@ -17,6 +17,9 @@
 		"FileServer1_password": {
 			"value": ""
 		},
+		"FileServer_onpremmain_deepika_password": {
+			"value": ""
+		},
 		"OnPrem_SQL_Server_password": {
 			"value": ""
 		},
@@ -42,6 +45,12 @@
 			"value": "E:\\ADF\\File_Deepika"
 		},
 		"FileServer1_properties_typeProperties_userId": {
+			"value": "dk.gupta25@outlook.com"
+		},
+		"FileServer_onpremmain_deepika_properties_typeProperties_host": {
+			"value": "E:\\ADF\\File_Deepika"
+		},
+		"FileServer_onpremmain_deepika_properties_typeProperties_userId": {
 			"value": "dk.gupta25@outlook.com"
 		},
 		"OnPrem_SQL_Server_properties_typeProperties_server": {

@@ -27,6 +27,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FileServer1'"
 		},
+		"FileServer_onpremmain_deepika_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServer_onpremmain_deepika'"
+		},
 		"OnPrem_SQL_Server_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'OnPrem_SQL_Server'"
@@ -68,6 +72,14 @@
 			"defaultValue": "E:\\ADF\\File_Deepika"
 		},
 		"FileServer1_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "dk.gupta25@outlook.com"
+		},
+		"FileServer_onpremmain_deepika_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "E:\\ADF\\File_Deepika"
+		},
+		"FileServer_onpremmain_deepika_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "dk.gupta25@outlook.com"
 		},
@@ -327,6 +339,30 @@
 					"password": {
 						"type": "SecureString",
 						"value": "[parameters('FileServer1_password')]"
+					}
+				},
+				"connectVia": {
+					"referenceName": "dkpc",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/dkpc')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/FileServer_onpremmain_deepika')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "FileServer",
+				"typeProperties": {
+					"host": "[parameters('FileServer_onpremmain_deepika_properties_typeProperties_host')]",
+					"userId": "[parameters('FileServer_onpremmain_deepika_properties_typeProperties_userId')]",
+					"password": {
+						"type": "SecureString",
+						"value": "[parameters('FileServer_onpremmain_deepika_password')]"
 					}
 				},
 				"connectVia": {
@@ -619,32 +655,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/linkedServices/OnPrem_SQL_Server')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/Onprem_text_source')]",
-			"type": "Microsoft.DataFactory/factories/datasets",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"linkedServiceName": {
-					"referenceName": "OnPrem_file",
-					"type": "LinkedServiceReference"
-				},
-				"annotations": [],
-				"type": "DelimitedText",
-				"typeProperties": {
-					"location": {
-						"type": "FileServerLocation"
-					},
-					"columnDelimiter": ",",
-					"escapeChar": "\\",
-					"firstRowAsHeader": true,
-					"quoteChar": "\""
-				},
-				"schema": []
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/OnPrem_file')]"
 			]
 		}
 	]

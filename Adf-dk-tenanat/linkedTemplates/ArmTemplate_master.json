@@ -23,6 +23,10 @@
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'FileServer1'"
 		},
+		"FileServer_onpremmain_deepika_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServer_onpremmain_deepika'"
+		},
 		"OnPrem_SQL_Server_password": {
 			"type": "secureString",
 			"metadata": "Secure string for 'password' of 'OnPrem_SQL_Server'"
@@ -56,6 +60,14 @@
 			"defaultValue": "E:\\ADF\\File_Deepika"
 		},
 		"FileServer1_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "dk.gupta25@outlook.com"
+		},
+		"FileServer_onpremmain_deepika_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "E:\\ADF\\File_Deepika"
+		},
+		"FileServer_onpremmain_deepika_properties_typeProperties_userId": {
 			"type": "string",
 			"defaultValue": "dk.gupta25@outlook.com"
 		},
@@ -141,6 +153,9 @@
 					"FileServer1_password": {
 						"value": "[parameters('FileServer1_password')]"
 					},
+					"FileServer_onpremmain_deepika_password": {
+						"value": "[parameters('FileServer_onpremmain_deepika_password')]"
+					},
 					"OnPrem_SQL_Server_password": {
 						"value": "[parameters('OnPrem_SQL_Server_password')]"
 					},
@@ -173,6 +188,12 @@
 					},
 					"FileServer1_properties_typeProperties_userId": {
 						"value": "[parameters('FileServer1_properties_typeProperties_userId')]"
+					},
+					"FileServer_onpremmain_deepika_properties_typeProperties_host": {
+						"value": "[parameters('FileServer_onpremmain_deepika_properties_typeProperties_host')]"
+					},
+					"FileServer_onpremmain_deepika_properties_typeProperties_userId": {
+						"value": "[parameters('FileServer_onpremmain_deepika_properties_typeProperties_userId')]"
 					},
 					"OnPrem_SQL_Server_properties_typeProperties_server": {
 						"value": "[parameters('OnPrem_SQL_Server_properties_typeProperties_server')]"
