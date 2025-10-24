@@ -8,14 +8,41 @@
 		"Az_blob_LinkedServices_connectionString": {
 			"value": ""
 		},
+		"AzureBlobStorage_deepika_connectionString": {
+			"value": ""
+		},
+		"AzureSqlDatabase_deepika_password": {
+			"value": ""
+		},
+		"FileServer1_password": {
+			"value": ""
+		},
 		"OnPrem_SQL_Server_password": {
 			"value": ""
 		},
 		"OnPrem_file_password": {
 			"value": ""
 		},
+		"Onpremises_archive_deepika_password": {
+			"value": ""
+		},
 		"linkedServices_AZ_SQLDB_password": {
 			"value": ""
+		},
+		"AzureSqlDatabase_deepika_properties_typeProperties_server": {
+			"value": "az-sql-server-dktenant.database.windows.net"
+		},
+		"AzureSqlDatabase_deepika_properties_typeProperties_database": {
+			"value": "az-sql-server-db-dk-tenanat"
+		},
+		"AzureSqlDatabase_deepika_properties_typeProperties_userName": {
+			"value": "dktenant"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"value": "E:\\ADF\\File_Deepika"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"value": "dk.gupta25@outlook.com"
 		},
 		"OnPrem_SQL_Server_properties_typeProperties_server": {
 			"value": "DESKTOP-8B7GOS8"
@@ -30,6 +57,12 @@
 			"value": "E:\\ADF\\file"
 		},
 		"OnPrem_file_properties_typeProperties_userId": {
+			"value": "dk.gupta25@outlook.com"
+		},
+		"Onpremises_archive_deepika_properties_typeProperties_host": {
+			"value": "E:\\ADF\\File_Deepika\\Archive"
+		},
+		"Onpremises_archive_deepika_properties_typeProperties_userId": {
 			"value": "dk.gupta25@outlook.com"
 		},
 		"linkedServices_AZ_SQLDB_properties_typeProperties_server": {
