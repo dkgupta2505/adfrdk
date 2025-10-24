@@ -93,7 +93,7 @@
 		},
 		"Onpremises_archive_deepika_properties_typeProperties_host": {
 			"type": "string",
-			"defaultValue": "E:\\ADF\\File_Deepika\\Archive"
+			"defaultValue": "E:\\ADF\\File_Deepika"
 		},
 		"Onpremises_archive_deepika_properties_typeProperties_userId": {
 			"type": "string",
