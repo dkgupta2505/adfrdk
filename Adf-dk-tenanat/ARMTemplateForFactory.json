@@ -2220,7 +2220,7 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"linkedServiceName": {
-					"referenceName": "FileServer1",
+					"referenceName": "Onpremises_archive_deepika",
 					"type": "LinkedServiceReference"
 				},
 				"parameters": {
@@ -2236,7 +2236,8 @@
 						"fileName": {
 							"value": "@dataset().P_filename",
 							"type": "Expression"
-						}
+						},
+						"folderPath": "Archive"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -2246,7 +2247,7 @@
 				"schema": []
 			},
 			"dependsOn": [
-				"[concat(variables('factoryId'), '/linkedServices/FileServer1')]"
+				"[concat(variables('factoryId'), '/linkedServices/Onpremises_archive_deepika')]"
 			]
 		},
 		{
