@@ -1,0 +1,17 @@
+{
+	"name": "FileServer_onpremmain_deepika",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "E:\\ADF\\File_Deepika",
+			"userId": "dk.gupta25@outlook.com",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI1NDNlZDYxNi01MDI5LTRhYjQtYTViNS1lNGQ1YWQ4MmZhNzUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "dkpc",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
