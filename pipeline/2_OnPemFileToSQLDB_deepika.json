@@ -1,0 +1,145 @@
+{
+	"name": "2_OnPemFileToSQLDB_deepika",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_OrderFileTo_dbo_Order_table",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"additionalColumns": [
+							{
+								"name": "FilePath",
+								"value": "$$FILEPATH"
+							},
+							{
+								"name": "FileName",
+								"value": "$$FILENAME"
+							},
+							{
+								"name": "dupliatecolumn",
+								"value": "$$COLUMN:Customer Name"
+							},
+							{
+								"name": "CustomerName",
+								"value": "LoadbyIndia"
+							},
+							{
+								"name": "LoadDate",
+								"value": {
+									"value": "@utcNow()",
+									"type": "Expression"
+								}
+							},
+							{
+								"name": "RunID",
+								"value": {
+									"value": "@pipeline().RunId",
+									"type": "Expression"
+								}
+							}
+						],
+						"storeSettings": {
+							"type": "FileServerReadSettings",
+							"recursive": true,
+							"wildcardFileName": "*Order*.txt",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"sink": {
+						"type": "AzureSqlSink",
+						"writeBehavior": "insert",
+						"sqlWriterUseTableLock": false
+					},
+					"enableStaging": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"name": "Order ID"
+								},
+								"sink": {
+									"name": "Order ID",
+									"type": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Customer Name"
+								},
+								"sink": {
+									"name": "Customer Name",
+									"type": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "Order Date"
+								},
+								"sink": {
+									"name": "Order Date",
+									"type": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "City"
+								},
+								"sink": {
+									"name": "City",
+									"type": "nvarchar"
+								}
+							},
+							{
+								"source": {
+									"name": "State"
+								},
+								"sink": {
+									"name": "State",
+									"type": "nvarchar"
+								}
+							}
+						],
+						"typeConversion": true,
+						"typeConversionSettings": {
+							"allowDataTruncation": true,
+							"treatBooleanAsNumber": false
+						}
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "Onprem_txtfile_deepika",
+						"type": "DatasetReference",
+						"parameters": {
+							"P_filename": "dk"
+						}
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "AzureSqlTable_deepika",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2025-10-24T13:32:47Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,38 @@
+{
+	"name": "OnPrem_sql_db",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OnPrem_SQL_Server",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "Order ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Customer Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Order Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "City",
+				"type": "nvarchar"
+			},
+			{
+				"name": "State",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Order"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
