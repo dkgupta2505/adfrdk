@@ -48,84 +48,165 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Copy data1",
-							"type": "Copy",
+							"name": "If Condition1",
+							"type": "IfCondition",
 							"dependsOn": [],
-							"policy": {
-								"timeout": "0.12:00:00",
-								"retry": 0,
-								"retryIntervalInSeconds": 30,
-								"secureOutput": false,
-								"secureInput": false
-							},
 							"userProperties": [],
 							"typeProperties": {
-								"source": {
-									"type": "ExcelSource",
-									"storeSettings": {
-										"type": "FileServerReadSettings",
-										"recursive": true,
-										"enablePartitionDiscovery": false
-									}
+								"expression": {
+									"value": "@not(equals(item().sheetName,'customers' )) ",
+									"type": "Expression"
 								},
-								"sink": {
-									"type": "SqlServerSink",
-									"preCopyScript": {
-										"value": "truncate table @{item().sheetName}",
-										"type": "Expression"
-									},
-									"writeBehavior": "insert",
-									"sqlWriterUseTableLock": false
-								},
-								"enableStaging": false,
-								"validateDataConsistency": false,
-								"logSettings": {
-									"enableCopyActivityLog": true,
-									"copyActivityLogSettings": {
-										"logLevel": "Warning",
-										"enableReliableLogging": false
-									},
-									"logLocationSettings": {
-										"linkedServiceName": {
-											"referenceName": "Az_blob_LinkedServices",
-											"type": "LinkedServiceReference"
+								"ifFalseActivities": [
+									{
+										"name": "Copy data2",
+										"type": "Copy",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
 										},
-										"path": "adflog"
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "ExcelSource",
+												"storeSettings": {
+													"type": "FileServerReadSettings",
+													"recursive": true,
+													"enablePartitionDiscovery": false
+												}
+											},
+											"sink": {
+												"type": "SqlServerSink",
+												"preCopyScript": {
+													"value": "truncate table @{item().sheetName}",
+													"type": "Expression"
+												},
+												"writeBehavior": "insert",
+												"sqlWriterUseTableLock": false
+											},
+											"enableStaging": false,
+											"translator": {
+												"type": "TabularTranslator",
+												"typeConversion": true,
+												"typeConversionSettings": {
+													"allowDataTruncation": true,
+													"treatBooleanAsNumber": false
+												}
+											}
+										},
+										"inputs": [
+											{
+												"referenceName": "onprem_excelsource_deepika",
+												"type": "DatasetReference",
+												"parameters": {
+													"filename_xls": {
+														"value": "@item().sheetName",
+														"type": "Expression"
+													}
+												}
+											}
+										],
+										"outputs": [
+											{
+												"referenceName": "OnPremSQLdb_parameterized",
+												"type": "DatasetReference",
+												"parameters": {
+													"p_table": {
+														"value": "@item().sheetName",
+														"type": "Expression"
+													}
+												}
+											}
+										]
 									}
-								},
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
+								],
+								"ifTrueActivities": [
+									{
+										"name": "Copy data1",
+										"type": "Copy",
+										"dependsOn": [],
+										"policy": {
+											"timeout": "0.12:00:00",
+											"retry": 0,
+											"retryIntervalInSeconds": 30,
+											"secureOutput": false,
+											"secureInput": false
+										},
+										"userProperties": [],
+										"typeProperties": {
+											"source": {
+												"type": "ExcelSource",
+												"storeSettings": {
+													"type": "FileServerReadSettings",
+													"recursive": true,
+													"enablePartitionDiscovery": false
+												}
+											},
+											"sink": {
+												"type": "SqlServerSink",
+												"preCopyScript": {
+													"value": "truncate table @{item().sheetName}",
+													"type": "Expression"
+												},
+												"writeBehavior": "insert",
+												"sqlWriterUseTableLock": false
+											},
+											"enableStaging": false,
+											"validateDataConsistency": false,
+											"logSettings": {
+												"enableCopyActivityLog": true,
+												"copyActivityLogSettings": {
+													"logLevel": "Warning",
+													"enableReliableLogging": false
+												},
+												"logLocationSettings": {
+													"linkedServiceName": {
+														"referenceName": "Az_blob_LinkedServices",
+														"type": "LinkedServiceReference"
+													},
+													"path": "adflog"
+												}
+											},
+											"translator": {
+												"type": "TabularTranslator",
+												"typeConversion": true,
+												"typeConversionSettings": {
+													"allowDataTruncation": true,
+													"treatBooleanAsNumber": false
+												}
+											}
+										},
+										"inputs": [
+											{
+												"referenceName": "onprem_excelsource_deepika",
+												"type": "DatasetReference",
+												"parameters": {
+													"filename_xls": {
+														"value": "@item().sheetName",
+														"type": "Expression"
+													}
+												}
+											}
+										],
+										"outputs": [
+											{
+												"referenceName": "OnPremSQLdb_parameterized",
+												"type": "DatasetReference",
+												"parameters": {
+													"p_table": {
+														"value": "@item().sheetName",
+														"type": "Expression"
+													}
+												}
+											}
+										]
 									}
-								}
-							},
-							"inputs": [
-								{
-									"referenceName": "onprem_excelsource_deepika",
-									"type": "DatasetReference",
-									"parameters": {
-										"filename_xls": {
-											"value": "@item().sheetName",
-											"type": "Expression"
-										}
-									}
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "OnPremSQLdb_parameterized",
-									"type": "DatasetReference",
-									"parameters": {
-										"p_table": {
-											"value": "@item().sheetName",
-											"type": "Expression"
-										}
-									}
-								}
-							]
+								]
+							}
 						}
 					]
 				}
