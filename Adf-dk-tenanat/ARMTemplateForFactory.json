@@ -1524,8 +1524,6 @@
 								{
 									"name": "delete Load file",
 									"type": "Delete",
-									"state": "Inactive",
-									"onInactiveMarkAs": "Succeeded",
 									"dependsOn": [
 										{
 											"activity": "Newcopydata",
@@ -1544,10 +1542,10 @@
 									"userProperties": [],
 									"typeProperties": {
 										"dataset": {
-											"referenceName": "OnPrem_csv_source_parameters",
+											"referenceName": "onpremises_txtfile_copy2",
 											"type": "DatasetReference",
 											"parameters": {
-												"p_fileName": {
+												"P_name": {
 													"value": "@item().name",
 													"type": "Expression"
 												}
@@ -1555,10 +1553,10 @@
 										},
 										"logStorageSettings": {
 											"linkedServiceName": {
-												"referenceName": "Az_blob_LinkedServices",
+												"referenceName": "AzureBlobStorage_deepika",
 												"type": "LinkedServiceReference"
 											},
-											"path": "adflog"
+											"path": "adflogging"
 										},
 										"enableLogging": true,
 										"storeSettings": {
@@ -1618,8 +1616,8 @@
 				"[concat(variables('factoryId'), '/datasets/OnPremSQLdb_parameterized')]",
 				"[concat(variables('factoryId'), '/datasets/Onprem_txtfile_deepikagetmetadata')]",
 				"[concat(variables('factoryId'), '/datasets/Onpremised_archive_deepika')]",
-				"[concat(variables('factoryId'), '/datasets/OnPrem_csv_source_parameters')]",
-				"[concat(variables('factoryId'), '/linkedServices/Az_blob_LinkedServices')]"
+				"[concat(variables('factoryId'), '/linkedServices/Az_blob_LinkedServices')]",
+				"[concat(variables('factoryId'), '/linkedServices/AzureBlobStorage_deepika')]"
 			]
 		},
 		{
@@ -2249,8 +2247,7 @@
 						"fileName": {
 							"value": "@dataset().P_filename",
 							"type": "Expression"
-						},
-						"folderPath": "Archive"
+						}
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -2616,6 +2613,191 @@
 				}
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/4_Load_ExcelMultipleSheetToSQLDB_Deepika')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "Foreachfilelist",
+						"type": "Lookup",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "0.12:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "SqlServerSource",
+								"sqlReaderQuery": "select 'customers' sheetName\nunion all select 'PizzaOrder'\nunion all select 'Pizzastore'",
+								"queryTimeout": "02:00:00",
+								"partitionOption": "None"
+							},
+							"dataset": {
+								"referenceName": "OnPrem_sql_db",
+								"type": "DatasetReference",
+								"parameters": {}
+							},
+							"firstRowOnly": false
+						}
+					},
+					{
+						"name": "ForEach1",
+						"type": "ForEach",
+						"dependsOn": [
+							{
+								"activity": "Foreachfilelist",
+								"dependencyConditions": [
+									"Succeeded"
+								]
+							}
+						],
+						"userProperties": [],
+						"typeProperties": {
+							"items": {
+								"value": "@activity('Foreachfilelist').output.value",
+								"type": "Expression"
+							},
+							"isSequential": true,
+							"activities": [
+								{
+									"name": "Copy data1",
+									"type": "Copy",
+									"dependsOn": [],
+									"policy": {
+										"timeout": "0.12:00:00",
+										"retry": 0,
+										"retryIntervalInSeconds": 30,
+										"secureOutput": false,
+										"secureInput": false
+									},
+									"userProperties": [],
+									"typeProperties": {
+										"source": {
+											"type": "ExcelSource",
+											"storeSettings": {
+												"type": "FileServerReadSettings",
+												"recursive": true,
+												"enablePartitionDiscovery": false
+											}
+										},
+										"sink": {
+											"type": "SqlServerSink",
+											"preCopyScript": {
+												"value": "truncate table @{item().sheetName}",
+												"type": "Expression"
+											},
+											"writeBehavior": "insert",
+											"sqlWriterUseTableLock": false
+										},
+										"enableStaging": false,
+										"validateDataConsistency": false,
+										"logSettings": {
+											"enableCopyActivityLog": true,
+											"copyActivityLogSettings": {
+												"logLevel": "Warning",
+												"enableReliableLogging": false
+											},
+											"logLocationSettings": {
+												"linkedServiceName": {
+													"referenceName": "Az_blob_LinkedServices",
+													"type": "LinkedServiceReference"
+												},
+												"path": "adflog"
+											}
+										},
+										"translator": {
+											"type": "TabularTranslator",
+											"typeConversion": true,
+											"typeConversionSettings": {
+												"allowDataTruncation": true,
+												"treatBooleanAsNumber": false
+											}
+										}
+									},
+									"inputs": [
+										{
+											"referenceName": "onprem_excelsource_deepika",
+											"type": "DatasetReference",
+											"parameters": {
+												"filename_xls": {
+													"value": "@item().sheetName",
+													"type": "Expression"
+												}
+											}
+										}
+									],
+									"outputs": [
+										{
+											"referenceName": "OnPremSQLdb_parameterized",
+											"type": "DatasetReference",
+											"parameters": {
+												"p_table": {
+													"value": "@item().sheetName",
+													"type": "Expression"
+												}
+											}
+										}
+									]
+								}
+							]
+						}
+					}
+				],
+				"policy": {
+					"elapsedTimeMetric": {}
+				},
+				"annotations": [],
+				"lastPublishTime": "2025-10-24T13:32:47Z"
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/OnPrem_sql_db')]",
+				"[concat(variables('factoryId'), '/datasets/onprem_excelsource_deepika')]",
+				"[concat(variables('factoryId'), '/datasets/OnPremSQLdb_parameterized')]",
+				"[concat(variables('factoryId'), '/linkedServices/Az_blob_LinkedServices')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/onprem_excelsource_deepika')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "FileServer1",
+					"type": "LinkedServiceReference"
+				},
+				"parameters": {
+					"filename_xls": {
+						"type": "string"
+					}
+				},
+				"annotations": [],
+				"type": "Excel",
+				"typeProperties": {
+					"sheetName": {
+						"value": "@dataset().filename_xls",
+						"type": "Expression"
+					},
+					"location": {
+						"type": "FileServerLocation",
+						"fileName": {
+							"value": "PizzaOrder.xlsx",
+							"type": "Expression"
+						}
+					},
+					"firstRowAsHeader": true
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/FileServer1')]"
+			]
 		}
 	]
 }
