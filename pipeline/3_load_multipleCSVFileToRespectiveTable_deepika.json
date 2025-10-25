@@ -247,8 +247,6 @@
 						{
 							"name": "delete Load file",
 							"type": "Delete",
-							"state": "Inactive",
-							"onInactiveMarkAs": "Succeeded",
 							"dependsOn": [
 								{
 									"activity": "Newcopydata",
@@ -267,10 +265,10 @@
 							"userProperties": [],
 							"typeProperties": {
 								"dataset": {
-									"referenceName": "OnPrem_csv_source_parameters",
+									"referenceName": "onpremises_txtfile_copy2",
 									"type": "DatasetReference",
 									"parameters": {
-										"p_fileName": {
+										"P_name": {
 											"value": "@item().name",
 											"type": "Expression"
 										}
@@ -278,10 +276,10 @@
 								},
 								"logStorageSettings": {
 									"linkedServiceName": {
-										"referenceName": "Az_blob_LinkedServices",
+										"referenceName": "AzureBlobStorage_deepika",
 										"type": "LinkedServiceReference"
 									},
-									"path": "adflog"
+									"path": "adflogging"
 								},
 								"enableLogging": true,
 								"storeSettings": {
