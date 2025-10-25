@@ -23,7 +23,8 @@
 					"value": "PizzaOrder.xlsx",
 					"type": "Expression"
 				}
-			}
+			},
+			"firstRowAsHeader": true
 		},
 		"schema": []
 	}
