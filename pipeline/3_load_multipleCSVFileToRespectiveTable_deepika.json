@@ -130,10 +130,10 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "Onprem_txtfile_deepikagetmetadata",
+									"referenceName": "onpremises_txtfile_copy2",
 									"type": "DatasetReference",
 									"parameters": {
-										"P_filename": {
+										"P_name": {
 											"value": "@item().name",
 											"type": "Expression"
 										}
