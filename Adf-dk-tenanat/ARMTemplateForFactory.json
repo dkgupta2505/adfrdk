@@ -2248,7 +2248,8 @@
 						"fileName": {
 							"value": "@dataset().P_filename",
 							"type": "Expression"
-						}
+						},
+						"folderPath": "Archive"
 					},
 					"columnDelimiter": ",",
 					"escapeChar": "\\",
@@ -2574,7 +2575,9 @@
 			"apiVersion": "2018-06-01",
 			"properties": {
 				"type": "SelfHosted",
-				"typeProperties": {}
+				"typeProperties": {
+					"selfContainedInteractiveAuthoringEnabled": true
+				}
 			},
 			"dependsOn": []
 		}
