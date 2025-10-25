@@ -1,0 +1,30 @@
+{
+	"name": "onprem_excelsource_deepika",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "FileServer1",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"filename_xls": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": {
+				"value": "@dataset().filename_xls",
+				"type": "Expression"
+			},
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": {
+					"value": "PizzaOrder.xlsx",
+					"type": "Expression"
+				}
+			}
+		},
+		"schema": []
+	}
+}
