@@ -18,7 +18,8 @@
 				"fileName": {
 					"value": "@dataset().P_filename",
 					"type": "Expression"
-				}
+				},
+				"folderPath": "Archive"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
