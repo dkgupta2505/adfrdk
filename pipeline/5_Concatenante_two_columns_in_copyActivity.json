@@ -85,7 +85,7 @@
 						"referenceName": "OnPrem_csv_source_parameters",
 						"type": "DatasetReference",
 						"parameters": {
-							"p_fileName": "employeeslist.csv"
+							"p_fileName": "employeeslist.txt"
 						}
 					}
 				],
