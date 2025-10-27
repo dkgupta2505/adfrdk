@@ -1,0 +1,23 @@
+{
+	"name": "OnPrem_folder",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OnPrem_file",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation",
+				"fileName": "Dharmendra.txt",
+				"folderPath": "Empty"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
