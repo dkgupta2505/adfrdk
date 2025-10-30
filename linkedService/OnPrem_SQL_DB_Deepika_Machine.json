@@ -1,0 +1,21 @@
+{
+	"name": "OnPrem_SQL_DB_Deepika_Machine",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "LAPTOP-E40UA656\\SQLEXPRESS",
+			"database": "drawat",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "Windows",
+			"userName": "deepika.rawat84@hotmail.com",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJlYjNlMmEwNi01YjM3LTQzOTMtODFmNC04ODMyMjVmNGFjNTUiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "Deepikapc",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
