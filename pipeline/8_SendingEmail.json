@@ -12,6 +12,36 @@
 				}
 			},
 			{
+				"name": "sending email",
+				"type": "WebActivity",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"headers": {
+						"Content-Type": "application/json"
+					},
+					"url": "https://prod-23.westindia.logic.azure.com:443/workflows/2d94fc644a5240aa951bf05fb85d7881/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=Ul8ZX7urKWkgUfiQUrkcaUIeb5lIKWj8qp08XbZTjOM",
+					"connectVia": {
+						"referenceName": "AutoResolveIntegrationRuntime",
+						"type": "IntegrationRuntimeReference"
+					},
+					"body": {
+						"value": "{\n    \"pipelineName\" :\"@{pipeline().DataFactory}\",\n    \"developer\":'@{pipeline().Pipeline}',\n    \"location\":'@{pipeline().TriggerId}'\n\n\n\n}",
+						"type": "Expression"
+					}
+				}
+			},
+			{
 				"name": "Web1",
 				"type": "WebActivity",
 				"dependsOn": [
@@ -47,6 +77,8 @@
 				}
 			}
 		],
-		"annotations": []
-	}
+		"annotations": [],
+		"lastPublishTime": "2025-10-30T08:09:37Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
 }
