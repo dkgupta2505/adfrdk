@@ -1,5 +1,5 @@
 {
-	"name": "usesof_until_activity",
+	"name": "10_usesof_until_activity_deepika",
 	"properties": {
 		"activities": [
 			{
@@ -106,7 +106,7 @@
 												"formatSettings": {
 													"type": "DelimitedTextWriteSettings",
 													"quoteAllText": true,
-													"fileExtension": ".txt"
+													"fileExtension": ""
 												}
 											},
 											"enableStaging": false,
@@ -160,7 +160,24 @@
 							}
 						}
 					],
-					"timeout": "0.1:00:00"
+					"timeout": "0.00:01:00"
+				}
+			},
+			{
+				"name": "Wait1",
+				"description": "File is not present",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "Until1",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 1
 				}
 			}
 		],
