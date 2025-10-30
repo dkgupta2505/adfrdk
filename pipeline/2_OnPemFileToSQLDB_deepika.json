@@ -113,23 +113,9 @@
 									"type": "nvarchar"
 								}
 							}
-						],
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
+						]
 					}
 				},
-				"inputs": [
-					{
-						"referenceName": "Onprem_txtfile_deepika",
-						"type": "DatasetReference",
-						"parameters": {
-							"P_filename": "dk"
-						}
-					}
-				],
 				"outputs": [
 					{
 						"referenceName": "AzureSqlTable_deepika",
