@@ -1,0 +1,21 @@
+{
+	"name": "OnPrem_SourceFile_deepika",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OnPremFile_Deepika_Machine",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

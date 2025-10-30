@@ -18,6 +18,10 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
+					"dataset": {
+						"referenceName": "OnPrem_SourceFile_deepika",
+						"type": "DatasetReference"
+					},
 					"fieldList": [
 						"childItems"
 					],
