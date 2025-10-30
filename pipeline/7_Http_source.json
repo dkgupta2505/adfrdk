@@ -113,7 +113,13 @@
 				"inputs": [
 					{
 						"referenceName": "Github_source_deepika",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"f_name": {
+								"value": "employeeslist.txt",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
