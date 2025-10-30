@@ -11,10 +11,10 @@
 			"trustServerCertificate": false,
 			"authenticationType": "Windows",
 			"userName": "dk.gupta25@outlook.com",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJhODQ2MWUxNi05MjY1LTQ0NDQtYTkwYy02OWFkODkwZmU2NDQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2ZWJkMmRlNi0yMGEwLTQ2MzgtYmNkMi1hOTc2NGEyNDhlMWIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
-			"referenceName": "dkpc",
+			"referenceName": "dkPC",
 			"type": "IntegrationRuntimeReference"
 		}
 	}
