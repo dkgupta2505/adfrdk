@@ -101,7 +101,10 @@
 										"inputs": [
 											{
 												"referenceName": "OnPrem_excel_source",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"P_sheetNAME": "customer"
+												}
 											}
 										],
 										"outputs": [
@@ -177,7 +180,10 @@
 										"inputs": [
 											{
 												"referenceName": "OnPrem_excel_source",
-												"type": "DatasetReference"
+												"type": "DatasetReference",
+												"parameters": {
+													"P_sheetNAME": "customer"
+												}
 											}
 										],
 										"outputs": [
