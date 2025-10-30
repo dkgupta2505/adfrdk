@@ -46,7 +46,10 @@
 				"outputs": [
 					{
 						"referenceName": "Azureblobstorage_target",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"folderpath": "flatten"
+						}
 					}
 				]
 			},
