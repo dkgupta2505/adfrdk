@@ -1,22 +1,21 @@
 {
-	"name": "onprem_excelsource_deepika",
+	"name": "onprem_exceldestination_deepika",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "FileServer1",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
-		"type": "Excel",
+		"type": "DelimitedText",
 		"typeProperties": {
-			"sheetName": "Sheet1",
 			"location": {
 				"type": "FileServerLocation",
-				"fileName": {
-					"value": "Deepika.xlsx",
-					"type": "Expression"
-				}
+				"folderPath": "Archive"
 			},
-			"firstRowAsHeader": true
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
 		},
 		"schema": []
 	}
