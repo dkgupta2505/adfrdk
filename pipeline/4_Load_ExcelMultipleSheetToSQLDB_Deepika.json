@@ -100,14 +100,8 @@
 										},
 										"inputs": [
 											{
-												"referenceName": "onprem_excelsource_deepika",
-												"type": "DatasetReference",
-												"parameters": {
-													"filename_xls": {
-														"value": "@item().sheetName",
-														"type": "Expression"
-													}
-												}
+												"referenceName": "OnPrem_excel_source",
+												"type": "DatasetReference"
 											}
 										],
 										"outputs": [
@@ -182,14 +176,8 @@
 										},
 										"inputs": [
 											{
-												"referenceName": "onprem_excelsource_deepika",
-												"type": "DatasetReference",
-												"parameters": {
-													"filename_xls": {
-														"value": "@item().sheetName",
-														"type": "Expression"
-													}
-												}
+												"referenceName": "OnPrem_excel_source",
+												"type": "DatasetReference"
 											}
 										],
 										"outputs": [
