@@ -1,0 +1,22 @@
+{
+	"name": "ds_az_blob_dk_history",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Az_blob_LinkedServices",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "historical"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
