@@ -19,12 +19,14 @@
 						"type": "SqlServerSource",
 						"sqlReaderQuery": "select thedate from dbo.calendar\nwhere TheYear=2025",
 						"queryTimeout": "02:00:00",
+						"isolationLevel": "ReadUncommitted",
 						"partitionOption": "None"
 					},
 					"dataset": {
 						"referenceName": "OnPrem_sql_db",
 						"type": "DatasetReference"
-					}
+					},
+					"firstRowOnly": false
 				}
 			},
 			{
@@ -41,11 +43,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"items": {
-						"value": "@activity('Get Date list').output",
+						"value": "@activity('Get Date list').output.value",
 						"type": "Expression"
 					},
-					"isSequential": false,
-					"batchCount": 10,
+					"isSequential": true,
 					"activities": [
 						{
 							"name": "Copy data1",
