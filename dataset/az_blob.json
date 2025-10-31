@@ -1,0 +1,22 @@
+{
+	"name": "az_blob",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage_deepika",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "historical"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
