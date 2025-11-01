@@ -1,0 +1,25 @@
+{
+	"name": "Sqlserver_parameterized_deepika",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "OnPrem_SQL_Server",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"T_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().T_name",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

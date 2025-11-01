@@ -1,0 +1,42 @@
+{
+	"name": "AzureSqlTable_deepika",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureSqlDatabase_deepika",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Order ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Customer Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Order Date",
+				"type": "nvarchar"
+			},
+			{
+				"name": "City",
+				"type": "nvarchar"
+			},
+			{
+				"name": "State",
+				"type": "nvarchar"
+			},
+			{
+				"name": "FilePath",
+				"type": "varchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "Order"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

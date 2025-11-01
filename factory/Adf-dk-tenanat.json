@@ -1,0 +1,9 @@
+{
+	"name": "Adf-dk-tenanat",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "34eea2e7-ecd3-4989-a8ee-b225af1fba56",
+		"tenantId": "5d724f32-e81f-48d1-af90-3a21b4b3e10f"
+	}
+}
