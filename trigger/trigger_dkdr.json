@@ -2,16 +2,7 @@
 	"name": "trigger_dkdr",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
-		"pipeline": {
-			"pipelineReference": {
-				"referenceName": "pipeline_dk",
-				"type": "PipelineReference"
-			},
-			"parameters": {
-				"strdate": "@trigger().outputs.windowStartTime"
-			}
-		},
+		"runtimeState": "Started",
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Minute",
