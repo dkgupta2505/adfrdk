@@ -6,10 +6,6 @@
 			"type": "string",
 			"metadata": "Data Factory name",
 			"defaultValue": "adf-admin-dk"
-		},
-		"tumbling_trigger_properties_11_tumblingTrigger_parameters_filnname_outer": {
-			"type": "string",
-			"defaultValue": "@trigger.outputs.windowsstartdate"
 		}
 	},
 	"variables": {
@@ -2367,38 +2363,6 @@
 				"annotations": []
 			},
 			"dependsOn": []
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/tumbling_trigger')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "11_tumblingTrigger",
-							"type": "PipelineReference"
-						},
-						"parameters": {
-							"filnname_outer": "[parameters('tumbling_trigger_properties_11_tumblingTrigger_parameters_filnname_outer')]"
-						}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Hour",
-						"interval": 5,
-						"startTime": "2025-11-01T00:00:00",
-						"timeZone": "India Standard Time"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/11_tumblingTrigger')]"
-			]
 		}
 	]
 }

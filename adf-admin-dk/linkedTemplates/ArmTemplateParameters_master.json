@@ -110,9 +110,6 @@
 		"linkedServices_AZ_SQLDB_properties_typeProperties_userName": {
 			"value": "db_admin"
 		},
-		"tumbling_trigger_properties_11_tumblingTrigger_parameters_filnname_outer": {
-			"value": "@trigger.outputs.windowsstartdate"
-		},
 		"containerUri": {
 			"value": ""
 		},
