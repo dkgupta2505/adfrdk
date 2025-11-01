@@ -1,0 +1,334 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adf-admin-dk"
+		},
+		"Az_blob_LinkedServices_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'Az_blob_LinkedServices'"
+		},
+		"AzureBlobStorage_deepika_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'AzureBlobStorage_deepika'"
+		},
+		"AzureSqlDatabase_deepika_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'AzureSqlDatabase_deepika'"
+		},
+		"FileServer1_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServer1'"
+		},
+		"FileServer_onpremmain_deepika_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'FileServer_onpremmain_deepika'"
+		},
+		"OnPremFile_Deepika_Machine_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'OnPremFile_Deepika_Machine'"
+		},
+		"OnPrem_SQL_DB_Deepika_Machine_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'OnPrem_SQL_DB_Deepika_Machine'"
+		},
+		"OnPrem_SQL_Server_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'OnPrem_SQL_Server'"
+		},
+		"OnPrem_file_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'OnPrem_file'"
+		},
+		"Onpremises_archive_deepika_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'Onpremises_archive_deepika'"
+		},
+		"linkedServices_AZ_SQLDB_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'linkedServices_AZ_SQLDB'"
+		},
+		"AzureSqlDatabase_deepika_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "az-sql-server-admin.database.windows.net"
+		},
+		"AzureSqlDatabase_deepika_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "db_admin"
+		},
+		"AzureSqlDatabase_deepika_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "user_admin"
+		},
+		"FileServer1_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "D:\\ADF\\RowData"
+		},
+		"FileServer1_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "deepika.rawat84@hotmail.com"
+		},
+		"FileServer_onpremmain_deepika_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "D:\\ADF\\RowData"
+		},
+		"FileServer_onpremmain_deepika_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "deepika.rawat84@hotmail.com"
+		},
+		"GitHub_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com"
+		},
+		"HttpServer1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://raw.githubusercontent.com"
+		},
+		"OnPremFile_Deepika_Machine_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "D:\\ADF\\RowData"
+		},
+		"OnPremFile_Deepika_Machine_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "deepika.rawat84@hotmail.com"
+		},
+		"OnPrem_SQL_DB_Deepika_Machine_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "LAPTOP-E40UA656\\SQLEXPRESS"
+		},
+		"OnPrem_SQL_DB_Deepika_Machine_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "drawat"
+		},
+		"OnPrem_SQL_DB_Deepika_Machine_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "deepika.rawat84@hotmail.com"
+		},
+		"OnPrem_SQL_Server_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "DESKTOP-8B7GOS8"
+		},
+		"OnPrem_SQL_Server_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "dkgupta2"
+		},
+		"OnPrem_SQL_Server_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "dk.gupta25@outlook.com"
+		},
+		"OnPrem_file_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "E:\\ADF\\file"
+		},
+		"OnPrem_file_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "dk.gupta25@outlook.com"
+		},
+		"Onpremises_archive_deepika_properties_typeProperties_host": {
+			"type": "string",
+			"defaultValue": "D:\\ADF\\RowData"
+		},
+		"Onpremises_archive_deepika_properties_typeProperties_userId": {
+			"type": "string",
+			"defaultValue": "deepika.rawat84@hotmail.com"
+		},
+		"linkedServices_AZ_SQLDB_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "az-sql-server-admin.database.windows.net"
+		},
+		"linkedServices_AZ_SQLDB_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "db_admin"
+		},
+		"linkedServices_AZ_SQLDB_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "db_admin"
+		},
+		"tumbling_trigger_properties_11_tumblingTrigger_parameters_filnname_outer": {
+			"type": "string",
+			"defaultValue": "@trigger.outputs.windowsstartdate"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adf-admin-dk_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"linkedServices_AZ_SQLDB_password": {
+						"value": "[parameters('linkedServices_AZ_SQLDB_password')]"
+					},
+					"Az_blob_LinkedServices_connectionString": {
+						"value": "[parameters('Az_blob_LinkedServices_connectionString')]"
+					},
+					"AzureBlobStorage_deepika_connectionString": {
+						"value": "[parameters('AzureBlobStorage_deepika_connectionString')]"
+					},
+					"AzureSqlDatabase_deepika_password": {
+						"value": "[parameters('AzureSqlDatabase_deepika_password')]"
+					},
+					"FileServer1_password": {
+						"value": "[parameters('FileServer1_password')]"
+					},
+					"FileServer_onpremmain_deepika_password": {
+						"value": "[parameters('FileServer_onpremmain_deepika_password')]"
+					},
+					"OnPremFile_Deepika_Machine_password": {
+						"value": "[parameters('OnPremFile_Deepika_Machine_password')]"
+					},
+					"OnPrem_SQL_DB_Deepika_Machine_password": {
+						"value": "[parameters('OnPrem_SQL_DB_Deepika_Machine_password')]"
+					},
+					"OnPrem_SQL_Server_password": {
+						"value": "[parameters('OnPrem_SQL_Server_password')]"
+					},
+					"OnPrem_file_password": {
+						"value": "[parameters('OnPrem_file_password')]"
+					},
+					"Onpremises_archive_deepika_password": {
+						"value": "[parameters('Onpremises_archive_deepika_password')]"
+					},
+					"GitHub_properties_typeProperties_url": {
+						"value": "[parameters('GitHub_properties_typeProperties_url')]"
+					},
+					"linkedServices_AZ_SQLDB_properties_typeProperties_server": {
+						"value": "[parameters('linkedServices_AZ_SQLDB_properties_typeProperties_server')]"
+					},
+					"linkedServices_AZ_SQLDB_properties_typeProperties_database": {
+						"value": "[parameters('linkedServices_AZ_SQLDB_properties_typeProperties_database')]"
+					},
+					"linkedServices_AZ_SQLDB_properties_typeProperties_userName": {
+						"value": "[parameters('linkedServices_AZ_SQLDB_properties_typeProperties_userName')]"
+					},
+					"AzureSqlDatabase_deepika_properties_typeProperties_server": {
+						"value": "[parameters('AzureSqlDatabase_deepika_properties_typeProperties_server')]"
+					},
+					"AzureSqlDatabase_deepika_properties_typeProperties_database": {
+						"value": "[parameters('AzureSqlDatabase_deepika_properties_typeProperties_database')]"
+					},
+					"AzureSqlDatabase_deepika_properties_typeProperties_userName": {
+						"value": "[parameters('AzureSqlDatabase_deepika_properties_typeProperties_userName')]"
+					},
+					"FileServer1_properties_typeProperties_host": {
+						"value": "[parameters('FileServer1_properties_typeProperties_host')]"
+					},
+					"FileServer1_properties_typeProperties_userId": {
+						"value": "[parameters('FileServer1_properties_typeProperties_userId')]"
+					},
+					"FileServer_onpremmain_deepika_properties_typeProperties_host": {
+						"value": "[parameters('FileServer_onpremmain_deepika_properties_typeProperties_host')]"
+					},
+					"FileServer_onpremmain_deepika_properties_typeProperties_userId": {
+						"value": "[parameters('FileServer_onpremmain_deepika_properties_typeProperties_userId')]"
+					},
+					"HttpServer1_properties_typeProperties_url": {
+						"value": "[parameters('HttpServer1_properties_typeProperties_url')]"
+					},
+					"OnPremFile_Deepika_Machine_properties_typeProperties_host": {
+						"value": "[parameters('OnPremFile_Deepika_Machine_properties_typeProperties_host')]"
+					},
+					"OnPremFile_Deepika_Machine_properties_typeProperties_userId": {
+						"value": "[parameters('OnPremFile_Deepika_Machine_properties_typeProperties_userId')]"
+					},
+					"OnPrem_SQL_DB_Deepika_Machine_properties_typeProperties_server": {
+						"value": "[parameters('OnPrem_SQL_DB_Deepika_Machine_properties_typeProperties_server')]"
+					},
+					"OnPrem_SQL_DB_Deepika_Machine_properties_typeProperties_database": {
+						"value": "[parameters('OnPrem_SQL_DB_Deepika_Machine_properties_typeProperties_database')]"
+					},
+					"OnPrem_SQL_DB_Deepika_Machine_properties_typeProperties_userName": {
+						"value": "[parameters('OnPrem_SQL_DB_Deepika_Machine_properties_typeProperties_userName')]"
+					},
+					"OnPrem_SQL_Server_properties_typeProperties_server": {
+						"value": "[parameters('OnPrem_SQL_Server_properties_typeProperties_server')]"
+					},
+					"OnPrem_SQL_Server_properties_typeProperties_database": {
+						"value": "[parameters('OnPrem_SQL_Server_properties_typeProperties_database')]"
+					},
+					"OnPrem_SQL_Server_properties_typeProperties_userName": {
+						"value": "[parameters('OnPrem_SQL_Server_properties_typeProperties_userName')]"
+					},
+					"OnPrem_file_properties_typeProperties_host": {
+						"value": "[parameters('OnPrem_file_properties_typeProperties_host')]"
+					},
+					"OnPrem_file_properties_typeProperties_userId": {
+						"value": "[parameters('OnPrem_file_properties_typeProperties_userId')]"
+					},
+					"Onpremises_archive_deepika_properties_typeProperties_host": {
+						"value": "[parameters('Onpremises_archive_deepika_properties_typeProperties_host')]"
+					},
+					"Onpremises_archive_deepika_properties_typeProperties_userId": {
+						"value": "[parameters('Onpremises_archive_deepika_properties_typeProperties_userId')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adf-admin-dk_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf-admin-dk_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "adf-admin-dk_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"tumbling_trigger_properties_11_tumblingTrigger_parameters_filnname_outer": {
+						"value": "[parameters('tumbling_trigger_properties_11_tumblingTrigger_parameters_filnname_outer')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adf-admin-dk_ArmTemplate_1')]"
+			]
+		}
+	]
+}
