@@ -1,16 +1,25 @@
 {
-	"name": "onprem_exceldestination_deepika",
+	"name": "OnPrem_dk_history",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "FileServer1",
+			"referenceName": "OnPrem_file",
 			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_filename": {
+				"type": "string"
+			}
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "FileServerLocation",
-				"folderPath": "Archive"
+				"fileName": {
+					"value": "@dataset().p_filename",
+					"type": "Expression"
+				},
+				"folderPath": "HistoricalFiles"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
