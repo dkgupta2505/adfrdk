@@ -54,7 +54,7 @@
 						"type": "DatasetReference",
 						"parameters": {
 							"filename": {
-								"value": "@formatDateTime(pipeline().parameters.p_filename,'yyyy-MM-dd' )",
+								"value": "@formatDateTime(pipeline().parameters.strdate,'yyyy-MM-dd' )",
 								"type": "Expression"
 							}
 						}
@@ -69,7 +69,7 @@
 			}
 		],
 		"parameters": {
-			"p_filename": {
+			"strdate": {
 				"type": "string"
 			}
 		},

@@ -9,7 +9,7 @@
 				"type": "PipelineReference"
 			},
 			"parameters": {
-				"p_filename": "@trigger().outputs.windowStartTime"
+				"strdate": "@trigger().outputs.windowStartTime"
 			}
 		},
 		"type": "TumblingWindowTrigger",
