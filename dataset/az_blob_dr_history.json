@@ -1,5 +1,5 @@
 {
-	"name": "az_blob",
+	"name": "az_blob_dr_history",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureBlobStorage_deepika",
