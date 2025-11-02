@@ -1,0 +1,31 @@
+{
+	"name": "ds_blob_dk_BuzEntity",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "Az_blob_LinkedServices",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_foldername": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": {
+					"value": "@dataset().p_foldername",
+					"type": "Expression"
+				},
+				"container": "insurance"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
