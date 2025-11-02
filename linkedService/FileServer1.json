@@ -10,7 +10,7 @@
 			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJjODI2ZTI4NC0xOWNlLTQ1MTQtYWZhNC1hNmJjZDc2Y2IwMmMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
-			"referenceName": "deepikapc",
+			"referenceName": "Deepikapc",
 			"type": "IntegrationRuntimeReference"
 		}
 	}
