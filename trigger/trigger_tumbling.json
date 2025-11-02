@@ -2,21 +2,21 @@
 	"name": "trigger_tumbling",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipeline": {
 			"pipelineReference": {
-				"referenceName": "11_tumblingTrigger",
+				"referenceName": "pipeline1",
 				"type": "PipelineReference"
 			},
 			"parameters": {
-				"filnname_outer": "@trigger().outputs.windowStartTime"
+				"strdate": "@trigger().outputs.windowStartTime"
 			}
 		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Hour",
-			"interval": 2,
-			"startTime": "2025-11-01T19:17:00Z",
+			"interval": 24,
+			"startTime": "2025-10-01T04:27:00Z",
 			"delay": "00:00:00",
 			"maxConcurrency": 50,
 			"retryPolicy": {
