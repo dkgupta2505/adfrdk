@@ -1,5 +1,5 @@
 {
-	"name": "blob",
+	"name": "blob_dk_history",
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "Az_blob_LinkedServices",

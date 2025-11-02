@@ -2,7 +2,16 @@
 	"name": "trigger_tumbling",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
+		"pipeline": {
+			"pipelineReference": {
+				"referenceName": "11_tumblinf_windows_v2",
+				"type": "PipelineReference"
+			},
+			"parameters": {
+				"filename": "@trigger().outputs.windowStartTime"
+			}
+		},
 		"type": "TumblingWindowTrigger",
 		"typeProperties": {
 			"frequency": "Hour",
