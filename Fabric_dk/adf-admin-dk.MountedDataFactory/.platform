@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "MountedDataFactory",
+    "displayName": "adf-admin-dk"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "9504d9db-b86f-9439-4a31-a8e460c3843e"
+  }
+}
