@@ -1,0 +1,9 @@
+{
+	"name": "adgupta-adf",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "a4b2b0cb-50f7-4feb-9f93-48c3de3d5ad5",
+		"tenantId": "49c8a36b-1d34-4591-8795-13c449e3781a"
+	}
+}
