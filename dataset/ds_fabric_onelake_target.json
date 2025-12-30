@@ -1,10 +1,6 @@
 {
 	"name": "ds_fabric_onelake_target",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "lk_fabric_onelake_file",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
