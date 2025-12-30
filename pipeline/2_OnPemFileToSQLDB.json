@@ -63,7 +63,8 @@
 						"type": "SqlServerSink",
 						"preCopyScript": "truncate table [dbo].[Order]",
 						"writeBehavior": "insert",
-						"sqlWriterUseTableLock": false
+						"sqlWriterUseTableLock": false,
+						"tableOption": "autoCreate"
 					},
 					"enableStaging": false,
 					"translator": {
