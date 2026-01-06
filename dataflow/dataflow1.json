@@ -188,7 +188,11 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
+				"     errorHandlingOption: 'stopOnFirstError',",
+				"     mapColumn(",
+				"          ModifiedDt,",
+				"          UpdatedBy",
+				"     )) ~> sink2"
 			]
 		}
 	}
