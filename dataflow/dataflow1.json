@@ -10,10 +10,39 @@
 						"type": "DatasetReference"
 					},
 					"name": "sourcestg"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTableTargetDeepika",
+						"type": "DatasetReference"
+					},
+					"name": "dimemployee"
 				}
 			],
-			"sinks": [],
-			"transformations": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTableTargetDeepika",
+						"type": "DatasetReference"
+					},
+					"name": "sink1",
+					"description": "Load data to target table "
+				}
+			],
+			"transformations": [
+				{
+					"name": "select1"
+				},
+				{
+					"name": "filtersourcedata"
+				},
+				{
+					"name": "exists1"
+				},
+				{
+					"name": "split1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          Emp_ID as string,",
@@ -41,7 +70,76 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> sourcestg"
+				"     format: 'table') ~> sourcestg",
+				"source(output(",
+				"          Emp_ID as string,",
+				"          First_Name as string,",
+				"          Gender as string,",
+				"          Start_Date as date,",
+				"          Salary as integer,",
+				"          Bonus as double,",
+				"          Team as string,",
+				"          Mob_No as integer,",
+				"          Country as string,",
+				"          City as string,",
+				"          State as string,",
+				"          Postal_Code as integer,",
+				"          Region as string,",
+				"          Band as integer,",
+				"          active_status as boolean,",
+				"          BaseLocation as string,",
+				"          EffectiveFrom as date,",
+				"          EffectTo as date,",
+				"          LoadDt as date,",
+				"          ModifiedDt as date,",
+				"          UpdatedBy as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> dimemployee",
+				"sourcestg select(skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: false) ~> select1",
+				"split1@Insert filter(ERROR_FUNCTION('active_status=__SINGLE_QUOTE__Y__SINGLE_QUOTE__')) ~> filtersourcedata",
+				"select1, dimemployee exists(select1@Emp_ID == dimemployee@Emp_ID,",
+				"     negate:true,",
+				"     broadcast: 'auto')~> exists1",
+				"exists1 split(ERROR_FUNCTION(''),",
+				"     ERROR_FUNCTION(''),",
+				"     disjoint: false) ~> split1@(Insert, Checkforupdates)",
+				"filtersourcedata sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Emp_ID as string,",
+				"          First_Name as string,",
+				"          Gender as string,",
+				"          Start_Date as date,",
+				"          Salary as integer,",
+				"          Bonus as double,",
+				"          Team as string,",
+				"          Mob_No as integer,",
+				"          Country as string,",
+				"          City as string,",
+				"          State as string,",
+				"          Postal_Code as integer,",
+				"          Region as string,",
+				"          Band as integer,",
+				"          active_status as boolean,",
+				"          BaseLocation as string,",
+				"          EffectiveFrom as date,",
+				"          EffectTo as date,",
+				"          LoadDt as date,",
+				"          ModifiedDt as date,",
+				"          UpdatedBy as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
 			]
 		}
 	}
