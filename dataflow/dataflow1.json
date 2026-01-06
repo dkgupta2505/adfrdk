@@ -16,7 +16,8 @@
 						"referenceName": "AzureSqlTableTargetDeepika",
 						"type": "DatasetReference"
 					},
-					"name": "dimemployee"
+					"name": "dimemployee",
+					"description": "select * from [dd].[dim_employee_new] where active_status='Y'"
 				}
 			],
 			"sinks": [
@@ -26,6 +27,13 @@
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTableTargetDeepika",
+						"type": "DatasetReference"
+					},
+					"name": "sink2"
 				}
 			],
 			"transformations": [
@@ -37,6 +45,12 @@
 				},
 				{
 					"name": "derivedColumn1"
+				},
+				{
+					"name": "derivedColumn2"
+				},
+				{
+					"name": "alterRow1"
 				}
 			],
 			"scriptLines": [
@@ -93,7 +107,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> dimemployee",
+				"     query: 'select * from [dd].[dim_employee_new] where active_status=\\'Y\\'',",
+				"     format: 'query') ~> dimemployee",
 				"sourcestg, dimemployee lookup(sourcestg@Emp_ID == dimemployee@Emp_ID,",
 				"     multiple: false,",
 				"     pickup: 'any',",
@@ -104,6 +119,9 @@
 				"          EffectTo = '1999-01-01',",
 				"          active_status = 'Y',",
 				"          LoadDt = currentDate()) ~> derivedColumn1",
+				"split1@udpaterecords derive(ModifiedDt = currentDate(),",
+				"          UpdatedBy = 'Deepika') ~> derivedColumn2",
+				"derivedColumn2 alterRow(updateIf(true())) ~> alterRow1",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
@@ -136,7 +154,41 @@
 				"     format: 'table',",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true,",
-				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1",
+				"alterRow1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     input(",
+				"          Emp_ID as string,",
+				"          First_Name as string,",
+				"          Gender as string,",
+				"          Start_Date as date,",
+				"          Salary as integer,",
+				"          Bonus as double,",
+				"          Team as string,",
+				"          Mob_No as integer,",
+				"          Country as string,",
+				"          City as string,",
+				"          State as string,",
+				"          Postal_Code as integer,",
+				"          Region as string,",
+				"          Band as integer,",
+				"          active_status as boolean,",
+				"          BaseLocation as string,",
+				"          EffectiveFrom as date,",
+				"          EffectTo as date,",
+				"          LoadDt as date,",
+				"          ModifiedDt as date,",
+				"          UpdatedBy as string",
+				"     ),",
+				"     deletable:false,",
+				"     insertable:false,",
+				"     updateable:true,",
+				"     upsertable:false,",
+				"     keys:['Emp_ID'],",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink2"
 			]
 		}
 	}
