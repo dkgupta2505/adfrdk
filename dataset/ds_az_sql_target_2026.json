@@ -1,0 +1,106 @@
+{
+	"name": "ds_az_sql_target_2026",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "linkedServices_dk_2026",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Emp_ID",
+				"type": "nvarchar"
+			},
+			{
+				"name": "First_Name",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Gender",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Start_Date",
+				"type": "date"
+			},
+			{
+				"name": "Salary",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Bonus",
+				"type": "float",
+				"precision": 15
+			},
+			{
+				"name": "Team",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Mob_No",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Country",
+				"type": "nvarchar"
+			},
+			{
+				"name": "City",
+				"type": "nvarchar"
+			},
+			{
+				"name": "State",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Postal_Code",
+				"type": "int",
+				"precision": 10
+			},
+			{
+				"name": "Region",
+				"type": "nvarchar"
+			},
+			{
+				"name": "Band",
+				"type": "tinyint",
+				"precision": 3
+			},
+			{
+				"name": "active_status",
+				"type": "varchar"
+			},
+			{
+				"name": "BaseLocation",
+				"type": "nvarchar"
+			},
+			{
+				"name": "EffectiveFrom",
+				"type": "date"
+			},
+			{
+				"name": "EffectTo",
+				"type": "date"
+			},
+			{
+				"name": "LoadDt",
+				"type": "date"
+			},
+			{
+				"name": "ModifiedDt",
+				"type": "date"
+			},
+			{
+				"name": "UpdatedBy",
+				"type": "nvarchar"
+			}
+		],
+		"typeProperties": {
+			"schema": "dd",
+			"table": "dim_employee"
+		}
+	}
+}
