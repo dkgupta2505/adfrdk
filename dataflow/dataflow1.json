@@ -25,22 +25,18 @@
 						"referenceName": "AzureSqlTableTargetDeepika",
 						"type": "DatasetReference"
 					},
-					"name": "sink1",
-					"description": "Load data to target table "
+					"name": "sink1"
 				}
 			],
 			"transformations": [
 				{
-					"name": "select1"
-				},
-				{
-					"name": "filtersourcedata"
-				},
-				{
-					"name": "exists1"
+					"name": "lookup1"
 				},
 				{
 					"name": "split1"
+				},
+				{
+					"name": "derivedColumn1"
 				}
 			],
 			"scriptLines": [
@@ -98,16 +94,17 @@
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
 				"     format: 'table') ~> dimemployee",
-				"sourcestg select(skipDuplicateMapInputs: true,",
-				"     skipDuplicateMapOutputs: false) ~> select1",
-				"split1@Insert filter(ERROR_FUNCTION('active_status=__SINGLE_QUOTE__Y__SINGLE_QUOTE__')) ~> filtersourcedata",
-				"select1, dimemployee exists(select1@Emp_ID == dimemployee@Emp_ID,",
-				"     negate:true,",
-				"     broadcast: 'auto')~> exists1",
-				"exists1 split(ERROR_FUNCTION(''),",
-				"     ERROR_FUNCTION(''),",
-				"     disjoint: false) ~> split1@(Insert, Checkforupdates)",
-				"filtersourcedata sink(allowSchemaDrift: true,",
+				"sourcestg, dimemployee lookup(sourcestg@Emp_ID == dimemployee@Emp_ID,",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> lookup1",
+				"lookup1 split(isNull(dimemployee@Emp_ID),",
+				"     disjoint: false) ~> split1@(newrecords, udpaterecords)",
+				"split1@newrecords derive(EffectiveFrom = currentDate(),",
+				"          EffectTo = '1999-01-01',",
+				"          active_status = 'Y',",
+				"          LoadDt = currentDate()) ~> derivedColumn1",
+				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
 				"          Emp_ID as string,",
