@@ -5,6 +5,19 @@
 			"referenceName": "linkedServices_dk_2026",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"ds_p_schema_name": {
+				"type": "string",
+				"defaultValue": "dd"
+			},
+			"ds_p_table_name": {
+				"type": "string",
+				"defaultValue": "stg_employee"
+			}
+		},
+		"folder": {
+			"name": "Yahoo"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
@@ -79,8 +92,14 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "dd",
-			"table": "stg_employee"
+			"schema": {
+				"value": "@dataset().ds_p_schema_name",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().ds_p_table_name",
+				"type": "Expression"
+			}
 		}
 	}
 }

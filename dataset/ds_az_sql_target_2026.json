@@ -5,6 +5,9 @@
 			"referenceName": "linkedServices_dk_2026",
 			"type": "LinkedServiceReference"
 		},
+		"folder": {
+			"name": "Yahoo"
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
