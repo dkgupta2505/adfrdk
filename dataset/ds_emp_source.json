@@ -1,0 +1,21 @@
+{
+	"name": "ds_emp_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lk_azureBlob",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "emp_20260106.xlsx",
+				"container": "source"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	}
+}
