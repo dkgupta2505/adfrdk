@@ -100,7 +100,7 @@
 		],
 		"typeProperties": {
 			"schema": "dd",
-			"table": "stg_employee"
+			"table": "stg_employee_new"
 		}
 	}
 }
