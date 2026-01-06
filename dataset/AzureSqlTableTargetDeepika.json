@@ -100,7 +100,7 @@
 		],
 		"typeProperties": {
 			"schema": "dd",
-			"table": "dim_employee"
+			"table": "dim_employee_new"
 		}
 	}
 }
