@@ -7,12 +7,10 @@
 		},
 		"parameters": {
 			"schema": {
-				"type": "string",
-				"defaultValue": "dd"
+				"type": "string"
 			},
 			"table": {
-				"type": "string",
-				"defaultValue": "stg_employee_new"
+				"type": "string"
 			}
 		},
 		"annotations": [],
