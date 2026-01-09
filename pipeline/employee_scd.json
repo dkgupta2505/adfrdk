@@ -243,7 +243,11 @@
 				"outputs": [
 					{
 						"referenceName": "AzureSqlTable1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"schema": "dd",
+							"table": "stg_employee_new"
+						}
 					}
 				]
 			},
@@ -269,7 +273,41 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "dataflow1",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"sink1": {
+								"schema": "dd",
+								"table": "stg_employee_new"
+							},
+							"sink2": {
+								"schema": "dd",
+								"table": "stg_employee_new"
+							},
+							"sink3": {
+								"schema": "dd",
+								"table": "stg_employee_new"
+							}
+						},
+						"linkedServiceParameters": {
+							"sink1": {
+								"schemaLinkedService": {
+									"schema": "dd",
+									"table": "stg_employee_new"
+								}
+							},
+							"sink2": {
+								"schemaLinkedService": {
+									"schema": "dd",
+									"table": "stg_employee_new"
+								}
+							},
+							"sink3": {
+								"schemaLinkedService": {
+									"schema": "dd",
+									"table": "stg_employee_new"
+								}
+							}
+						}
 					},
 					"integrationRuntime": {
 						"referenceName": "integrationRuntime2",
