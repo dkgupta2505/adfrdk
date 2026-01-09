@@ -5,8 +5,6 @@
 			{
 				"name": "Copy data1",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -287,26 +285,6 @@
 								"schema": "dd",
 								"table": "stg_employee_new"
 							}
-						},
-						"linkedServiceParameters": {
-							"sink1": {
-								"schemaLinkedService": {
-									"schema": "dd",
-									"table": "stg_employee_new"
-								}
-							},
-							"sink2": {
-								"schemaLinkedService": {
-									"schema": "dd",
-									"table": "stg_employee_new"
-								}
-							},
-							"sink3": {
-								"schemaLinkedService": {
-									"schema": "dd",
-									"table": "stg_employee_new"
-								}
-							}
 						}
 					},
 					"integrationRuntime": {
@@ -317,6 +295,11 @@
 				}
 			}
 		],
+		"parameters": {
+			"P_filename_pipline": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
