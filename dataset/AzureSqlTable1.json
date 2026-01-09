@@ -5,6 +5,16 @@
 			"referenceName": "AzureSqlDatabase_deepika",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"schema": {
+				"type": "string",
+				"defaultValue": "dd"
+			},
+			"table": {
+				"type": "string",
+				"defaultValue": "stg_employee_new"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
@@ -99,8 +109,14 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "dd",
-			"table": "stg_employee_new"
+			"schema": {
+				"value": "@dataset().schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().table",
+				"type": "Expression"
+			}
 		}
 	}
 }
