@@ -5,14 +5,6 @@
 			"referenceName": "AzureSqlDatabase_deepika",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"schema": {
-				"type": "string"
-			},
-			"table": {
-				"type": "string"
-			}
-		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
@@ -107,14 +99,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": {
-				"value": "@dataset().schema",
-				"type": "Expression"
-			},
-			"table": {
-				"value": "@dataset().table",
-				"type": "Expression"
-			}
+			"schema": "dd",
+			"table": "stg_employee_new"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
