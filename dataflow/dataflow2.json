@@ -10,10 +10,27 @@
 						"type": "DatasetReference"
 					},
 					"name": "Stgsource"
+				},
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTableTargetDeepika",
+						"type": "DatasetReference"
+					},
+					"name": "targetsource"
+				},
+				{
+					"name": "source1"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "select1"
+				},
+				{
+					"name": "lookup1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          Emp_ID as string,",
@@ -41,7 +58,65 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     isolationLevel: 'READ_UNCOMMITTED',",
-				"     format: 'table') ~> Stgsource"
+				"     format: 'table') ~> Stgsource",
+				"source(output(",
+				"          Emp_ID as string,",
+				"          First_Name as string,",
+				"          Gender as string,",
+				"          Start_Date as date,",
+				"          Salary as integer,",
+				"          Bonus as double,",
+				"          Team as string,",
+				"          Mob_No as integer,",
+				"          Country as string,",
+				"          City as string,",
+				"          State as string,",
+				"          Postal_Code as integer,",
+				"          Region as string,",
+				"          Band as integer,",
+				"          active_status as boolean,",
+				"          BaseLocation as string,",
+				"          EffectiveFrom as date,",
+				"          EffectTo as date,",
+				"          LoadDt as date,",
+				"          ModifiedDt as date,",
+				"          UpdatedBy as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> targetsource",
+				"source(allowSchemaDrift: true,",
+				"     validateSchema: false) ~> source1",
+				"Stgsource select(mapColumn(",
+				"          Sql_Emp_ID = Emp_ID,",
+				"          Sql_First_Name = First_Name,",
+				"          Sql_Gender = Gender,",
+				"          Sql_Start_Date = Start_Date,",
+				"          Sql_Salary = Salary,",
+				"          Sql_Bonus = Bonus,",
+				"          Sql_Team = Team,",
+				"          Sql_Mob_No = Mob_No,",
+				"          Sql_Country = Country,",
+				"          Sql_City = City,",
+				"          Sql_State = State,",
+				"          Sql_Postal_Code = Postal_Code,",
+				"          Sql_Region = Region,",
+				"          Sql_Band = Band,",
+				"          Sql_active_status = active_status,",
+				"          Sql_BaseLocation = BaseLocation,",
+				"          Sql_EffectiveFrom = EffectiveFrom,",
+				"          Sql_EffectTo = EffectTo,",
+				"          Sql_LoadDt = LoadDt,",
+				"          Sql_ModifiedDt = ModifiedDt,",
+				"          Sql_UpdatedBy = UpdatedBy",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select1",
+				"select1, targetsource lookup(Sql_Emp_ID == Emp_ID,",
+				"     multiple: false,",
+				"     pickup: 'any',",
+				"     broadcast: 'auto')~> lookup1"
 			]
 		}
 	}
