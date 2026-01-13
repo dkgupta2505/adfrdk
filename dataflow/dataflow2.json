@@ -1,0 +1,48 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "AzureSqlTable1",
+						"type": "DatasetReference"
+					},
+					"name": "Stgsource"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          Emp_ID as string,",
+				"          First_Name as string,",
+				"          Gender as string,",
+				"          Start_Date as date,",
+				"          Salary as integer,",
+				"          Bonus as double,",
+				"          Team as string,",
+				"          Mob_No as integer,",
+				"          Country as string,",
+				"          City as string,",
+				"          State as string,",
+				"          Postal_Code as integer,",
+				"          Region as string,",
+				"          Band as integer,",
+				"          active_status as boolean,",
+				"          BaseLocation as string,",
+				"          EffectiveFrom as date,",
+				"          EffectTo as date,",
+				"          LoadDt as date,",
+				"          ModifiedDt as date,",
+				"          UpdatedBy as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> Stgsource"
+			]
+		}
+	}
+}
