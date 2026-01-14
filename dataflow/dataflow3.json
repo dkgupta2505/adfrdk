@@ -59,6 +59,15 @@
 				},
 				{
 					"name": "select2"
+				},
+				{
+					"name": "exists2"
+				},
+				{
+					"name": "derivedColumn3"
+				},
+				{
+					"name": "select3"
 				}
 			],
 			"scriptLines": [
@@ -180,6 +189,33 @@
 				"     ),",
 				"     skipDuplicateMapInputs: true,",
 				"     skipDuplicateMapOutputs: true) ~> select2",
+				"split1@Update, targetsource exists(Sql_First_Name!=split1@Update@First_Name || Sql_Mob_No!=split1@Update@Mob_No ,",
+				"     negate:false,",
+				"     broadcast: 'auto')~> exists2",
+				"exists2 derive(Sql_Active_Status = \"Y\",",
+				"          Sql_LoadDate = currentDate()) ~> derivedColumn3",
+				"derivedColumn3 select(mapColumn(",
+				"          Sql_Emp_ID,",
+				"          Sql_First_Name,",
+				"          Sql_Gender,",
+				"          Sql_Start_Date,",
+				"          Sql_Salary,",
+				"          Sql_Bonus,",
+				"          Sql_Team,",
+				"          Sql_Mob_No,",
+				"          Sql_Country,",
+				"          Sql_City,",
+				"          Sql_State,",
+				"          Sql_Postal_Code,",
+				"          Sql_Region,",
+				"          Sql_Band,",
+				"          Sql_BaseLocation,",
+				"          UpdatedBy,",
+				"          Sql_Active_Status,",
+				"          Sql_LoadDate",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> select3",
 				"derivedColumn1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     input(",
