@@ -107,14 +107,8 @@
 			}
 		],
 		"typeProperties": {
-			"schema": {
-				"value": "@dataset().schema",
-				"type": "Expression"
-			},
-			"table": {
-				"value": "@dataset().table",
-				"type": "Expression"
-			}
+			"schema": "dd",
+			"table": "stg_employee_new"
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
