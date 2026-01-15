@@ -1,0 +1,21 @@
+{
+	"name": "Deepika_SQL_Server",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "LAPTOP-E40UA656",
+			"database": "AdventureWorks2014",
+			"encrypt": "mandatory",
+			"trustServerCertificate": true,
+			"authenticationType": "Windows",
+			"userName": "deepika.rawat84@hotmail.com",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2ODZhZmViNy02OGQ0LTQ5NjAtYjJhNy02YjhjOWFhNGRhZDQiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SHIR-DeepikaPC2",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
