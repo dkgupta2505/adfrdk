@@ -5,6 +5,14 @@
 			"referenceName": "AzureSqlDatabase_deepika",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"schema": {
+				"type": "string"
+			},
+			"Stage": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "AzureSqlTable",
 		"schema": [
@@ -99,8 +107,14 @@
 			}
 		],
 		"typeProperties": {
-			"schema": "dd",
-			"table": "stg_employee_new"
+			"schema": {
+				"value": "@dataset().schema",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@dataset().Stage",
+				"type": "Expression"
+			}
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
