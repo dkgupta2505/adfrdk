@@ -302,7 +302,49 @@
 				"typeProperties": {
 					"dataflow": {
 						"referenceName": "dataflow4",
-						"type": "DataFlowReference"
+						"type": "DataFlowReference",
+						"datasetParameters": {
+							"stgsource": {
+								"schema": "dd",
+								"Stage": "stg_employee_new"
+							},
+							"Dimsource": {
+								"schema": "dd",
+								"Stage": "dim_employee_new"
+							},
+							"sink1": {
+								"schema": "dd",
+								"stage": "dim_employee_new"
+							},
+							"sink2": {
+								"schema": "dd",
+								"stage": "dim_employee_new"
+							},
+							"sink3": {
+								"schema": "dd",
+								"stage": "dim_employee_new"
+							}
+						},
+						"linkedServiceParameters": {
+							"stgsource": {
+								"schemaLinkedService": {
+									"schema": "dd",
+									"Stage": "stg_employee_new"
+								}
+							},
+							"Dimsource": {
+								"schemaLinkedService": {
+									"schema": "dd",
+									"Stage": "dim_employee_new"
+								}
+							},
+							"sink3": {
+								"schemaLinkedService": {
+									"schema": "dd",
+									"stage": "dim_employee_new"
+								}
+							}
+						}
 					},
 					"integrationRuntime": {
 						"referenceName": "integrationRuntime2",
@@ -312,11 +354,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"P_filename_pipline": {
-				"type": "string"
-			}
-		},
 		"annotations": []
 	}
 }
