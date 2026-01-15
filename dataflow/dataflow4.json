@@ -22,21 +22,21 @@
 			"sinks": [
 				{
 					"dataset": {
-						"referenceName": "AzureSqlTableTargetDeepika",
+						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference"
 					},
 					"name": "sink1"
 				},
 				{
 					"dataset": {
-						"referenceName": "AzureSqlTableTargetDeepika",
+						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference"
 					},
 					"name": "sink2"
 				},
 				{
 					"dataset": {
-						"referenceName": "AzureSqlTableTargetDeepika",
+						"referenceName": "AzureSqlTable1",
 						"type": "DatasetReference"
 					},
 					"name": "sink3"
