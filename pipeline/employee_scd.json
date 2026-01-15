@@ -314,15 +314,15 @@
 							},
 							"sink1": {
 								"schema": "dd",
-								"stage": "dim_employee_new"
+								"Stage": "dim_employee_new"
 							},
 							"sink2": {
 								"schema": "dd",
-								"stage": "dim_employee_new"
+								"Stage": "dim_employee_new"
 							},
 							"sink3": {
 								"schema": "dd",
-								"stage": "dim_employee_new"
+								"Stage": "dim_employee_new"
 							}
 						},
 						"linkedServiceParameters": {
@@ -338,10 +338,22 @@
 									"Stage": "dim_employee_new"
 								}
 							},
+							"sink1": {
+								"schemaLinkedService": {
+									"schema": "dd",
+									"Stage": "dim_employee_new"
+								}
+							},
+							"sink2": {
+								"schemaLinkedService": {
+									"schema": "dd",
+									"Stage": "dim_employee_new"
+								}
+							},
 							"sink3": {
 								"schemaLinkedService": {
 									"schema": "dd",
-									"stage": "dim_employee_new"
+									"Stage": "dim_employee_new"
 								}
 							}
 						}
