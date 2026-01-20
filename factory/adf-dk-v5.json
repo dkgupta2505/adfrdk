@@ -1,0 +1,9 @@
+{
+	"name": "adf-dk-v5",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "5d0000ac-84c0-4008-9258-991193d43e2b",
+		"tenantId": "d742e994-c97c-4cdb-9e8b-7131155fc26d"
+	}
+}
