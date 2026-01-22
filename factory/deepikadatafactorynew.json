@@ -1,0 +1,9 @@
+{
+	"name": "deepikadatafactorynew",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "89375b95-8a7c-45c4-a0e4-c3e1f79bb368",
+		"tenantId": "d742e994-c97c-4cdb-9e8b-7131155fc26d"
+	}
+}
