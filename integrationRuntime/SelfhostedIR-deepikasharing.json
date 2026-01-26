@@ -1,0 +1,12 @@
+{
+	"name": "SelfhostedIR-deepikasharing",
+	"properties": {
+		"type": "SelfHosted",
+		"typeProperties": {
+			"linkedInfo": {
+				"resourceId": "/subscriptions/b16dcee3-5050-4ea6-9d4b-73432915aa7e/resourcegroups/deepikarg/providers/Microsoft.DataFactory/factories/deepikadatafactorynew/integrationruntimes/SelfHostedIR-new",
+				"authorizationType": "Rbac"
+			}
+		}
+	}
+}
