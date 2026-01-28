@@ -1,0 +1,21 @@
+{
+	"name": "ds_dk_pc_file",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_dkpc_file",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}

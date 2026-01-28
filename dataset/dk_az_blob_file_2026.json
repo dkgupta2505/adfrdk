@@ -1,0 +1,22 @@
+{
+	"name": "dk_az_blob_file_2026",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lk_az_blob_2026_file",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
