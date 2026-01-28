@@ -1,0 +1,12 @@
+{
+	"name": "SHIR-sharing-deepika",
+	"properties": {
+		"type": "SelfHosted",
+		"typeProperties": {
+			"linkedInfo": {
+				"resourceId": "/subscriptions/295de943-aa90-4c1e-8578-15a1ef1a322c/resourcegroups/rg_deepu/providers/Microsoft.DataFactory/factories/adf-deepu/integrationruntimes/Selfhosted-deepika",
+				"authorizationType": "Rbac"
+			}
+		}
+	}
+}
