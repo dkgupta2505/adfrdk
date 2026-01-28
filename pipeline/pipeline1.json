@@ -31,10 +31,6 @@
 						"type": "SSISDB"
 					},
 					"environmentPath": null,
-					"connectVia": {
-						"referenceName": "SHIR-SSIS",
-						"type": "IntegrationRuntimeReference"
-					},
 					"loggingLevel": "Basic"
 				}
 			}
