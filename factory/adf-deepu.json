@@ -1,0 +1,9 @@
+{
+	"name": "adf-deepu",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "12110ed0-ffa1-42e2-865f-bb7f4ec70d91",
+		"tenantId": "c6a11187-1202-4805-a64a-943a9f6ba32b"
+	}
+}
