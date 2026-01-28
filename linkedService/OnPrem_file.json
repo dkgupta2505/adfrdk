@@ -7,7 +7,11 @@
 		"typeProperties": {
 			"host": "E:\\ADF\\file",
 			"userId": "dk.gupta25@outlook.com",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIxMDFkNzBjMC01ZWY1LTQ4NjQtOWQ3Yi0wOGE3ZWYxODhlZmMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIyN2ZjYjdiZC0yNTMzLTQ4ZTktOGIwNC1mZTc0YjgxOTg0ODYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SHIR-DKPC",
+			"type": "IntegrationRuntimeReference"
 		}
 	}
 }

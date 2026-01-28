@@ -5,8 +5,12 @@
 		"annotations": [],
 		"type": "AzureBlobStorage",
 		"typeProperties": {
-			"connectionString": "DefaultEndpointsProtocol=https;AccountName=storagedktenant;EndpointSuffix=core.windows.net;",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDkzRDQzMkM5LTExMkQtNDNBMy04RTk1LTgyNkY5QUVEOUVDQV9kNWFmZTg2Yy1iODhjLTRiNzctOTFlZi05YjZhNjMyMTdlNjMiDQp9"
+			"connectionString": "DefaultEndpointsProtocol=https;AccountName=storagedkg;EndpointSuffix=core.windows.net;",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQEJBOEJEM0I3LTE5NUEtNDBEMi05MEVGLTAyM0NGNjI3ODA3M19lZTVlNmVkMS03OWE3LTQxY2UtYWJiYi03MzRmNTc1M2IwMmQiDQp9"
+		},
+		"connectVia": {
+			"referenceName": "Az-ir-for-Generic",
+			"type": "IntegrationRuntimeReference"
 		}
 	}
 }
