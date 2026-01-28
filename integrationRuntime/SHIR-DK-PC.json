@@ -1,0 +1,12 @@
+{
+	"name": "SHIR-DK-PC",
+	"properties": {
+		"type": "SelfHosted",
+		"typeProperties": {
+			"linkedInfo": {
+				"resourceId": "/subscriptions/295de943-aa90-4c1e-8578-15a1ef1a322c/resourcegroups/dkg_rg/providers/Microsoft.DataFactory/factories/adf-dkg/integrationruntimes/SHIR-DKPC",
+				"authorizationType": "Rbac"
+			}
+		}
+	}
+}
