@@ -7,7 +7,7 @@
 		"typeProperties": {
 			"host": "E:\\ADF\\SSIS_Storage",
 			"userId": "dk.gupta25@outlook.com",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3MjU3NWIyOC1iZjdiLTQxYjQtOWNlOC0zMzJmOGFlNjI0OGMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3MjE2OTRiYi1kNWZlLTQwNDQtODJiNC0xY2ZlMzg1NDY1ZmIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "SHIR-DKPC",
