@@ -1,0 +1,38 @@
+{
+	"name": "14_exe_ssis_OnPremFile_stored",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute SSIS Package1",
+				"type": "ExecuteSSISPackage",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"packageLocation": {
+						"type": "PackageStore",
+						"packagePath": "PmPremSSISStorage/Package1.dtsx",
+						"typeProperties": {
+							"packagePassword": {
+								"type": "SecureString",
+								"value": "**********"
+							},
+							"configurationPath": "dk.gupta25@outlook.com"
+						}
+					},
+					"connectVia": {
+						"referenceName": "AZ-SSIS-IR-OnPrem-storage",
+						"type": "IntegrationRuntimeReference"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
