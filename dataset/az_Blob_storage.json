@@ -1,10 +1,6 @@
 {
 	"name": "az_Blob_storage",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "Az_blob_LinkedServices",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {

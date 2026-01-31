@@ -1,10 +1,6 @@
 {
 	"name": "az_blob_dk_tenant",
 	"properties": {
-		"linkedServiceName": {
-			"referenceName": "Az_blob_LinkedServices",
-			"type": "LinkedServiceReference"
-		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
