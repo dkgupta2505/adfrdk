@@ -16,9 +16,23 @@
 				"userProperties": [],
 				"typeProperties": {
 					"packageLocation": {
-						"type": "SSISDB"
+						"packagePath": "\\\\storagedkg.file.core.windows.net\\dkpc-filesharing\\Package1.dtsx",
+						"type": "File",
+						"typeProperties": {
+							"accessCredential": {
+								"domain": "Azure",
+								"userName": "storagedkg",
+								"password": {
+									"type": "SecureString",
+									"value": "**********"
+								}
+							}
+						}
 					},
-					"loggingLevel": "Basic"
+					"connectVia": {
+						"referenceName": "AZ-SSIS-IR-Filesystem",
+						"type": "IntegrationRuntimeReference"
+					}
 				}
 			}
 		],
