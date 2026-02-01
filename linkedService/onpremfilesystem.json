@@ -1,0 +1,17 @@
+{
+	"name": "onpremfilesystem",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "D:\\ADF\\RowData",
+			"userId": "deepika.rawat84@hotmail.com",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2NmJlN2Y1Ny00ZTlhLTQ1NmUtYTIxMS0yMjhhZDE1ZmRiNmMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "Selfhosted-deepika",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
