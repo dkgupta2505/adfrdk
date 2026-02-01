@@ -51,14 +51,7 @@
 				"typeProperties": {
 					"packageLocation": {
 						"type": "PackageStore",
-						"packagePath": "myfilesystemssis/Package1.dtsx",
-						"typeProperties": {
-							"packagePassword": {
-								"type": "SecureString",
-								"value": "**********"
-							},
-							"configurationPath": "dk.gupta25@outlook.com"
-						}
+						"packagePath": "myfilesystemssis/E:\\ADF\\SSIS_Storage\\Package1.dtsx"
 					},
 					"connectVia": {
 						"referenceName": "SHIR-filesystem",
