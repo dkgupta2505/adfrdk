@@ -1,0 +1,17 @@
+{
+	"name": "filesystemls_dkpc",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "E:\\ADF\\SSIS_Storage",
+			"userId": "dk.gupta25@outlook.com",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI3NjA2YzRiMy05ZWMzLTRhZjEtOGRjYi0yYjNlMzNjMDA1MTYiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "SHIR-DK-PC",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
