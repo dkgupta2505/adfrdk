@@ -1,0 +1,22 @@
+{
+	"name": "deepikaazuretarget",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "azuresqlserver_deepika",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [
+			{
+				"name": "id",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "table_1"
+		}
+	}
+}
