@@ -6,12 +6,12 @@
 		"type": "SqlServer",
 		"typeProperties": {
 			"server": "LAPTOP-E40UA656\\SQLEXPRESS",
-			"database": "drawat",
+			"database": "AdventureWorks2014",
 			"encrypt": "mandatory",
 			"trustServerCertificate": true,
 			"authenticationType": "Windows",
 			"userName": "deepika.rawat84@hotmail.com",
-			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJmYjU2ZDYzZi1hZjE0LTQ1YzktYTgyNS0xM2U4YzY5N2Q5MjEiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiI2Y2JjMzE1OC0zNDJhLTQxMTAtYWFkNy1kNGRjODc2NDMzMWIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
 		},
 		"connectVia": {
 			"referenceName": "Selfhosted-deepika",
