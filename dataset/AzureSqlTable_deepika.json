@@ -5,7 +5,18 @@
 			"referenceName": "AzureSqlDatabase_deepika",
 			"type": "LinkedServiceReference",
 			"parameters": {
-				"dbName": "dbmart"
+				"dbName": {
+					"value": "@dataset().DBnamefromdataset",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"TableName": {
+				"type": "String"
+			},
+			"DBnamefromdataset": {
+				"type": "String"
 			}
 		},
 		"annotations": [],
@@ -38,7 +49,10 @@
 		],
 		"typeProperties": {
 			"schema": "dbo",
-			"table": "table_1"
+			"table": {
+				"value": "@dataset().TableName",
+				"type": "Expression"
+			}
 		}
 	},
 	"type": "Microsoft.DataFactory/factories/datasets"
