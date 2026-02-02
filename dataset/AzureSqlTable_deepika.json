@@ -3,7 +3,10 @@
 	"properties": {
 		"linkedServiceName": {
 			"referenceName": "AzureSqlDatabase_deepika",
-			"type": "LinkedServiceReference"
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"dbName": "dbmart"
+			}
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
