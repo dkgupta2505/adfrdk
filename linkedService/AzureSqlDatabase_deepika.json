@@ -5,13 +5,17 @@
 		"annotations": [],
 		"type": "AzureSqlDatabase",
 		"typeProperties": {
-			"server": "az-sql-server-dk-tenant.database.windows.net",
-			"database": "dktenant_db",
+			"server": "az-sql-server-cfg.database.windows.net",
+			"database": "DbMart",
 			"encrypt": "mandatory",
 			"trustServerCertificate": true,
 			"authenticationType": "SQL",
-			"userName": "sql_admin",
-			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDMyNkNCRTQ5LURCN0EtNEYzQS1BMDk5LUYyNTU3NDU3MkJEMV9kYWMwYjQwMi1lMTZjLTRiMjMtOTYyOC1iYWJiOWUyNmQ1NTEiDQp9"
+			"userName": "cfg_admin",
+			"encryptedCredential": "ew0KICAiVmVyc2lvbiI6ICIyMDE3LTExLTMwIiwNCiAgIlByb3RlY3Rpb25Nb2RlIjogIktleSIsDQogICJTZWNyZXRDb250ZW50VHlwZSI6ICJQbGFpbnRleHQiLA0KICAiQ3JlZGVudGlhbElkIjogIkRBVEFGQUNUT1JZQDgyRTlEOURGLUE5MDktNDYzQy1CNTJDLTE1NDQ3RkY0NjM2N183M2UzNDljZC04YjcyLTQ2NDktYjY1Ni1mMTRmYzM1MzFiMjAiDQp9"
+		},
+		"connectVia": {
+			"referenceName": "az-ir-general-purpose",
+			"type": "IntegrationRuntimeReference"
 		}
 	}
 }
