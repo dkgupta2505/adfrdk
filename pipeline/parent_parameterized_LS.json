@@ -1,0 +1,92 @@
+{
+	"name": "parent_parameterized_LS",
+	"properties": {
+		"activities": [
+			{
+				"name": "Lookup1",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "AzureSqlSource",
+						"sqlReaderQuery": "\nselect 'table_1' as  tablenamefromsource ,\n\t'dbmart' as dbnamefromsource,\n\t'table_1'  as tablenamefromtarget,\n\t'ssisdb'\tas dbnamefromtarget",
+						"queryTimeout": "02:00:00",
+						"partitionOption": "None"
+					},
+					"dataset": {
+						"referenceName": "AzureSqlTable_deepika1",
+						"type": "DatasetReference",
+						"parameters": {
+							"tablename": {
+								"value": "@pipeline().parameters.parenttablename",
+								"type": "Expression"
+							},
+							"Dbnamefromdataset": {
+								"value": "@pipeline().parameters.parentdbname",
+								"type": "Expression"
+							}
+						}
+					}
+				}
+			},
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Lookup1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"policy": {
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "parameterized_linkedservices",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"tablenamefromsource": {
+							"value": "@{activity('Lookup1').output.firstRow.tablenamefromsource}",
+							"type": "Expression"
+						},
+						"dbnamefromsource": {
+							"value": "@{activity('Lookup1').output.firstRow.dbnamefromsource}",
+							"type": "Expression"
+						},
+						"tablenamefromtarget": {
+							"value": "@{activity('Lookup1').output.firstRow.tablenamefromtarget}",
+							"type": "Expression"
+						},
+						"dbnamefromtarget": {
+							"value": "@{activity('Lookup1').output.firstRow.dbnamefromtarget}",
+							"type": "Expression"
+						}
+					}
+				}
+			}
+		],
+		"parameters": {
+			"parenttablename": {
+				"type": "string"
+			},
+			"parentdbname": {
+				"type": "string"
+			}
+		},
+		"annotations": []
+	}
+}
