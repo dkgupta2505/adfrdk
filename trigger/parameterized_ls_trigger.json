@@ -1,0 +1,28 @@
+{
+	"name": "parameterized_ls_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Started",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "parent_parameterized_LS",
+					"type": "PipelineReference"
+				},
+				"parameters": {
+					"parenttablename": "table_1",
+					"parentdbname": "SSISDB"
+				}
+			}
+		],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2026-02-03T08:06:00",
+				"timeZone": "India Standard Time"
+			}
+		}
+	}
+}
