@@ -2,32 +2,11 @@
 	"name": "AzureSqlTable_deepika1",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "AzureSqlDatabase_deepika",
-			"type": "LinkedServiceReference",
-			"parameters": {
-				"dbName": {
-					"value": "@dataset().DBNamefromDataset",
-					"type": "Expression"
-				}
-			}
-		},
-		"parameters": {
-			"tbName": {
-				"type": "String"
-			},
-			"DBNamefromDataset": {
-				"type": "String"
-			}
+			"referenceName": "Newlsforazuresqlserver",
+			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "AzureSqlTable",
-		"schema": [],
-		"typeProperties": {
-			"schema": "dbo",
-			"table": {
-				"value": "@dataset().tbName",
-				"type": "Expression"
-			}
-		}
+		"schema": []
 	}
 }
