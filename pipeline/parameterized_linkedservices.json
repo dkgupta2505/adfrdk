@@ -52,13 +52,33 @@
 				"inputs": [
 					{
 						"referenceName": "AzureSqlTable_deepika1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"tablename": {
+								"value": "@pipeline().parameters.tablenamefromsource",
+								"type": "Expression"
+							},
+							"Dbnamefromdataset": {
+								"value": "@pipeline().parameters.dbnamefromsource",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "AzureSqlTable_deepika1",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"tablename": {
+								"value": "@pipeline().parameters.tablenamefromtarget",
+								"type": "Expression"
+							},
+							"Dbnamefromdataset": {
+								"value": "@pipeline().parameters.dbnamefromtarget",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
