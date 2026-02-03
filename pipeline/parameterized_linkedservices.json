@@ -5,6 +5,8 @@
 			{
 				"name": "Copy data1",
 				"type": "Copy",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -52,33 +54,13 @@
 				"inputs": [
 					{
 						"referenceName": "AzureSqlTable_deepika1",
-						"type": "DatasetReference",
-						"parameters": {
-							"tbName": {
-								"value": "@pipeline().parameters.tablenamefromsource",
-								"type": "Expression"
-							},
-							"DBNamefromDataset": {
-								"value": "@pipeline().parameters.dbnamefromsource",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "AzureSqlTable_deepika1",
-						"type": "DatasetReference",
-						"parameters": {
-							"tbName": {
-								"value": "@pipeline().parameters.tablenamefromtarget",
-								"type": "Expression"
-							},
-							"DBNamefromDataset": {
-								"value": "@pipeline().parameters.dbnamefromtarget",
-								"type": "Expression"
-							}
-						}
+						"type": "DatasetReference"
 					}
 				]
 			}
