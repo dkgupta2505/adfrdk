@@ -1,0 +1,24 @@
+{
+	"name": "ds_OnPrem_sql_server",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lk_Onprem_SQLServer_2026",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"p_tablename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": {
+				"value": "@dataset().p_tablename",
+				"type": "Expression"
+			}
+		}
+	}
+}
