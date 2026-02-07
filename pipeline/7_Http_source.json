@@ -39,31 +39,8 @@
 							"fileExtension": ".txt"
 						}
 					},
-					"enableStaging": false,
-					"translator": {
-						"type": "TabularTranslator",
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
-					}
-				},
-				"inputs": [
-					{
-						"referenceName": "GithubFiles",
-						"type": "DatasetReference",
-						"parameters": {
-							"f_name": "Order_Aaron"
-						}
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "az_Blob_storage",
-						"type": "DatasetReference"
-					}
-				]
+					"enableStaging": false
+				}
 			},
 			{
 				"name": "copy data from Github",
@@ -91,19 +68,7 @@
 						}
 					},
 					"enableStaging": false
-				},
-				"inputs": [
-					{
-						"referenceName": "Github_source_deepika",
-						"type": "DatasetReference",
-						"parameters": {
-							"f_name": {
-								"value": "employeeslist.txt",
-								"type": "Expression"
-							}
-						}
-					}
-				]
+				}
 			}
 		],
 		"annotations": []

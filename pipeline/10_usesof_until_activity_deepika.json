@@ -26,10 +26,6 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"dataset": {
-									"referenceName": "onprem_excelsource_deepika",
-									"type": "DatasetReference"
-								},
 								"fieldList": [
 									"exists"
 								],
@@ -110,28 +106,8 @@
 													"fileExtension": ""
 												}
 											},
-											"enableStaging": false,
-											"translator": {
-												"type": "TabularTranslator",
-												"typeConversion": true,
-												"typeConversionSettings": {
-													"allowDataTruncation": true,
-													"treatBooleanAsNumber": false
-												}
-											}
-										},
-										"inputs": [
-											{
-												"referenceName": "onprem_excelsource_deepika",
-												"type": "DatasetReference"
-											}
-										],
-										"outputs": [
-											{
-												"referenceName": "onprem_exceldestination_deepika",
-												"type": "DatasetReference"
-											}
-										]
+											"enableStaging": false
+										}
 									},
 									{
 										"name": "Set variable1",

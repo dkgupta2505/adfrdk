@@ -94,10 +94,6 @@
 							},
 							"userProperties": [],
 							"typeProperties": {
-								"dataset": {
-									"referenceName": "OnPrem_folder",
-									"type": "DatasetReference"
-								},
 								"fieldList": [
 									"exists"
 								],
@@ -185,28 +181,8 @@
 													"fileExtension": ".txt"
 												}
 											},
-											"enableStaging": false,
-											"translator": {
-												"type": "TabularTranslator",
-												"typeConversion": true,
-												"typeConversionSettings": {
-													"allowDataTruncation": true,
-													"treatBooleanAsNumber": false
-												}
-											}
-										},
-										"inputs": [
-											{
-												"referenceName": "OnPrem_folder",
-												"type": "DatasetReference"
-											}
-										],
-										"outputs": [
-											{
-												"referenceName": "az_Blob_storage",
-												"type": "DatasetReference"
-											}
-										]
+											"enableStaging": false
+										}
 									},
 									{
 										"name": "set variable true",

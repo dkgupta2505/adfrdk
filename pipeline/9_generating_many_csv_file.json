@@ -22,10 +22,6 @@
 						"isolationLevel": "ReadUncommitted",
 						"partitionOption": "None"
 					},
-					"dataset": {
-						"referenceName": "OnPrem_sql_db",
-						"type": "DatasetReference"
-					},
 					"firstRowOnly": false
 				}
 			},
@@ -82,34 +78,8 @@
 										"fileExtension": ".txt"
 									}
 								},
-								"enableStaging": false,
-								"translator": {
-									"type": "TabularTranslator",
-									"typeConversion": true,
-									"typeConversionSettings": {
-										"allowDataTruncation": true,
-										"treatBooleanAsNumber": false
-									}
-								}
-							},
-							"inputs": [
-								{
-									"referenceName": "OnPrem_sql_db",
-									"type": "DatasetReference"
-								}
-							],
-							"outputs": [
-								{
-									"referenceName": "OnPrem_csv_source_parameters",
-									"type": "DatasetReference",
-									"parameters": {
-										"p_fileName": {
-											"value": "@formatDateTime(item().TheDate,'yyyy-MM-dd')",
-											"type": "Expression"
-										}
-									}
-								}
-							]
+								"enableStaging": false
+							}
 						}
 					]
 				}

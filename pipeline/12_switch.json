@@ -53,40 +53,8 @@
 												"fileExtension": ".txt"
 											}
 										},
-										"enableStaging": false,
-										"translator": {
-											"type": "TabularTranslator",
-											"typeConversion": true,
-											"typeConversionSettings": {
-												"allowDataTruncation": true,
-												"treatBooleanAsNumber": false
-											}
-										}
-									},
-									"inputs": [
-										{
-											"referenceName": "OnPrem_dk_paramiterizedFolderName",
-											"type": "DatasetReference",
-											"parameters": {
-												"p_foldername": {
-													"value": "@pipeline().parameters.BusinessEntity",
-													"type": "Expression"
-												}
-											}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "ds_blob_dk_BuzEntity",
-											"type": "DatasetReference",
-											"parameters": {
-												"p_foldername": {
-													"value": "@pipeline().parameters.BusinessEntity",
-													"type": "Expression"
-												}
-											}
-										}
-									]
+										"enableStaging": false
+									}
 								}
 							]
 						},
@@ -130,40 +98,8 @@
 												"fileExtension": ".txt"
 											}
 										},
-										"enableStaging": false,
-										"translator": {
-											"type": "TabularTranslator",
-											"typeConversion": true,
-											"typeConversionSettings": {
-												"allowDataTruncation": true,
-												"treatBooleanAsNumber": false
-											}
-										}
-									},
-									"inputs": [
-										{
-											"referenceName": "OnPrem_dk_paramiterizedFolderName",
-											"type": "DatasetReference",
-											"parameters": {
-												"p_foldername": {
-													"value": "@pipeline().parameters.BusinessEntity",
-													"type": "Expression"
-												}
-											}
-										}
-									],
-									"outputs": [
-										{
-											"referenceName": "ds_blob_dk_BuzEntity",
-											"type": "DatasetReference",
-											"parameters": {
-												"p_foldername": {
-													"value": "@pipeline().parameters.BusinessEntity",
-													"type": "Expression"
-												}
-											}
-										}
-									]
+										"enableStaging": false
+									}
 								}
 							]
 						}

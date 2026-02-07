@@ -17,13 +17,17 @@
 				"typeProperties": {
 					"source": {
 						"type": "SqlServerSource",
-						"sqlReaderQuery": "select 'customers' sheetName\nunion all select 'PizzaOrder'\nunion all select 'PizzaStore'",
+						"sqlReaderQuery": "select 'customers' sheetName\nunion select 'PizzaOrder' sheetName\nunion select 'PizzaStore' sheetName",
 						"queryTimeout": "02:00:00",
+						"isolationLevel": "ReadUncommitted",
 						"partitionOption": "None"
 					},
 					"dataset": {
-						"referenceName": "OnPrem_sql_db",
-						"type": "DatasetReference"
+						"referenceName": "ds_OnPrem_sql_server",
+						"type": "DatasetReference",
+						"parameters": {
+							"p_tablename": "Order"
+						}
 					},
 					"firstRowOnly": false
 				}
@@ -70,10 +74,6 @@
 								},
 								"sink": {
 									"type": "SqlServerSink",
-									"preCopyScript": {
-										"value": "truncate table @{item().sheetName}",
-										"type": "Expression"
-									},
 									"writeBehavior": "insert",
 									"sqlWriterUseTableLock": false
 								},
@@ -90,10 +90,10 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "OnPrem_excel_source",
+									"referenceName": "ds_Onprem_excel_source_2026",
 									"type": "DatasetReference",
 									"parameters": {
-										"P_sheetNAME": {
+										"p_sheetName": {
 											"value": "@item().sheetName",
 											"type": "Expression"
 										}
@@ -102,10 +102,10 @@
 							],
 							"outputs": [
 								{
-									"referenceName": "OnPremSQLdb_parameterized",
+									"referenceName": "ds_OnPrem_sql_server",
 									"type": "DatasetReference",
 									"parameters": {
-										"p_table": {
+										"p_tablename": {
 											"value": "@item().sheetName",
 											"type": "Expression"
 										}
