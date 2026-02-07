@@ -1,6 +1,10 @@
 {
 	"name": "az_Blob_storage",
 	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lk_blob_source_2026",
+			"type": "LinkedServiceReference"
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
