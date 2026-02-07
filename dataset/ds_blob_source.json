@@ -1,0 +1,43 @@
+{
+	"name": "ds_blob_source",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lk_blob_source_2026",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "source"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "Customer Id",
+				"type": "String"
+			},
+			{
+				"name": "Order_Id",
+				"type": "String"
+			},
+			{
+				"name": "pizza_id",
+				"type": "String"
+			},
+			{
+				"name": "quantity",
+				"type": "String"
+			},
+			{
+				"name": "OrderDate",
+				"type": "String"
+			}
+		]
+	}
+}

@@ -1,0 +1,110 @@
+{
+	"name": "ds_onPremFile",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "lk_Onprem_file_2026",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "FileServerLocation"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "E",
+				"type": "String"
+			},
+			{
+				"name": "First Name",
+				"type": "String"
+			},
+			{
+				"name": "Gender",
+				"type": "String"
+			},
+			{
+				"name": "Start Date",
+				"type": "String"
+			},
+			{
+				"name": "Last Login Time",
+				"type": "String"
+			},
+			{
+				"name": "Salary",
+				"type": "String"
+			},
+			{
+				"name": "Bonus %",
+				"type": "String"
+			},
+			{
+				"name": "Senior Management",
+				"type": "String"
+			},
+			{
+				"name": "Team",
+				"type": "String"
+			},
+			{
+				"name": "Mob_No",
+				"type": "String"
+			},
+			{
+				"name": "Country",
+				"type": "String"
+			},
+			{
+				"name": "City",
+				"type": "String"
+			},
+			{
+				"name": "State",
+				"type": "String"
+			},
+			{
+				"name": "Postal Code",
+				"type": "String"
+			},
+			{
+				"name": "Region",
+				"type": "String"
+			},
+			{
+				"name": "Band",
+				"type": "String"
+			},
+			{
+				"name": "active_flag",
+				"type": "String"
+			},
+			{
+				"name": "BaseLocation",
+				"type": "String"
+			},
+			{
+				"name": "EffectiveFrom",
+				"type": "String"
+			},
+			{
+				"name": "EffectTo",
+				"type": "String"
+			},
+			{
+				"name": "updateDt",
+				"type": "String"
+			},
+			{
+				"name": "UpdatedBy",
+				"type": "String"
+			}
+		]
+	}
+}

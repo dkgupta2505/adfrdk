@@ -32,8 +32,7 @@
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
-							"type": "AzureBlobStorageWriteSettings",
-							"copyBehavior": "PreserveHierarchy"
+							"type": "AzureBlobStorageWriteSettings"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -53,13 +52,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Onprem_text_source",
+						"referenceName": "ds_onPremFile",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "az_Blob_storage",
+						"referenceName": "ds_blob_source",
 						"type": "DatasetReference"
 					}
 				]
@@ -115,13 +114,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Onprem_text_source",
+						"referenceName": "ds_onPremFile",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "az_Blob_storage",
+						"referenceName": "ds_blob_source",
 						"type": "DatasetReference"
 					}
 				]
@@ -129,8 +128,6 @@
 			{
 				"name": "Merge_hierarchy_copy",
 				"type": "Copy",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -177,13 +174,13 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "Onprem_text_source",
+						"referenceName": "ds_onPremFile",
 						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
 					{
-						"referenceName": "az_Blob_storage",
+						"referenceName": "ds_blob_source",
 						"type": "DatasetReference"
 					}
 				]
