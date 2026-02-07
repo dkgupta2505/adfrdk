@@ -2,14 +2,15 @@
 	"name": "Onprem_text_source",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "OnPrem_file",
+			"referenceName": "lk_Onprem_file_2026",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
-				"type": "FileServerLocation"
+				"type": "FileServerLocation",
+				"fileName": "Order*.txt"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",

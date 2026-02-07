@@ -2,7 +2,7 @@
 	"name": "OnPrem_sql_db",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "OnPrem_SQL_Server",
+			"referenceName": "lk_Onprem_SQLServer_2026",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
