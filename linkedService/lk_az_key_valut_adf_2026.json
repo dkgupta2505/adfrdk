@@ -1,0 +1,10 @@
+{
+	"name": "lk_az_key_valut_adf_2026",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://dk-keyvalut.vault.azure.net/"
+		}
+	}
+}
