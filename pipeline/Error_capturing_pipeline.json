@@ -78,8 +78,6 @@
 			{
 				"name": "Set variable4",
 				"type": "SetVariable",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [
 					{
 						"activity": "Wait1",
@@ -95,7 +93,10 @@
 				"userProperties": [],
 				"typeProperties": {
 					"variableName": "deepika",
-					"value": ""
+					"value": {
+						"value": "@concat(activity('Set variable1').Error.message,'|', activity('Set variable2').Error.message,'|',activity('Set variable3').Error.message)",
+						"type": "Expression"
+					}
 				}
 			}
 		],
