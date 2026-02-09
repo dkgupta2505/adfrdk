@@ -94,7 +94,39 @@
 				"typeProperties": {
 					"variableName": "deepika",
 					"value": {
-						"value": "@concat(activity('Set variable1').Error.message,'|', activity('Set variable2').Error.message,'|',activity('Set variable3').Error.message)",
+						"value": "@concat(activity('Set variable1').Error?.message,'|', activity('Set variable2').Error?.message,'|',activity('Set variable3').Error?.message)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [
+					{
+						"activity": "Set variable4",
+						"dependencyConditions": [
+							"Failed"
+						]
+					}
+				],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"method": "POST",
+					"url": "https://prod-30.northcentralus.logic.azure.com:443/workflows/f1138d65bade4169826c2ea0f2971361/triggers/When_an_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_an_HTTP_request_is_received%2Frun&sv=1.0&sig=Q-XRRXyNjLHJjfKYdRsKMH1YYxJ022Bdb7oMnhkkb30",
+					"connectVia": {
+						"referenceName": "AutoResolveIntegrationRuntime",
+						"type": "IntegrationRuntimeReference"
+					},
+					"body": {
+						"value": "{\n    \"Pipelinename\":\"@{pipeline().Pipeline}\",\n    \"ErrorMessage\":\"@{activity('Set Variable4').Error.Message}\",\n    \"Datafactoryname\":\"@{pipeline().DataFactory}\"\n    \n\n\n}",
 						"type": "Expression"
 					}
 				}
