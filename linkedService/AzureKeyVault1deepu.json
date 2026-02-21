@@ -1,0 +1,10 @@
+{
+	"name": "AzureKeyVault1deepu",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://kv-1st.vault.azure.net/"
+		}
+	}
+}
