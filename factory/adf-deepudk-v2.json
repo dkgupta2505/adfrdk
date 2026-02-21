@@ -1,0 +1,9 @@
+{
+	"name": "adf-deepudk-v2",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "2a23b870-35bb-43e5-96fd-30f0e3f331e0",
+		"tenantId": "aaa65a0a-7232-437e-b0c3-aa2d2bb49d43"
+	}
+}
